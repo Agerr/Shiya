@@ -5,7 +5,7 @@ const bot = new Discord.Client({ intents: 6095 });
 
 const config = require(`./config.json`);
 
-console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}`);
+console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
 // Load commands
 bot.commands = new Discord.Collection();
@@ -23,7 +23,7 @@ fs.readdir("./commands/", (err, files) => {
 })
 
 bot.on("ready", () => {
-    console.log(`Logged in as ${bot.user.tag}!`);
+    console.log(`\nLogged in as ${bot.user.tag}!\n`);
 })
 
 bot.on("messageCreate", message => {
