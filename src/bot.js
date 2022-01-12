@@ -11,7 +11,7 @@ bot.on("ready", () => {
 })
 
 bot.on("messageCreate", message => {
-    if(message.content === "ping") return message.channel.send("pong");
+    if(message.content === "ping") return message.channel.send("ping pong ping pong");
 })
 
 bot.login(config.token);
