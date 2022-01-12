@@ -1,0 +1,23 @@
+{
+  "name": "botty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agerr/Botty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Agerr/Botty/issues"
+  },
+  "homepage": "https://github.com/Agerr/Botty#readme",
+  "dependencies": {
+    "discord.js": "^13.5.1"
+  }
+}
