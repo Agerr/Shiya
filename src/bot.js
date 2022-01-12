@@ -36,6 +36,8 @@ bot.on("messageCreate", message => {
 
     const cmd = bot.commands.get(command);
 
+    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.name)) return; // if its a developer command and the user isnt a developer, return
+
     try {
         cmd.run(bot, message, args); // run the command loaded in
     } catch(e) {
