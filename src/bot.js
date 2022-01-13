@@ -27,7 +27,7 @@ bot.on("ready", () => {
 })
 
 bot.on("messageCreate", message => {
-    if(!message.content.startsWith(config.prefix)) return;
+    if(!message.content.startsWith(config.prefix) || message.author.bot || message.guild === null) return;
 
     const args = message.content.split(" ");
     const command = args.shift().toLowerCase().substr(config.prefix.length);
