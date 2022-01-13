@@ -1,5 +1,5 @@
 const Discord = require(`discord.js`);
-const fs = require("fs"); // lets you manage files
+const fs = require("fs");
 
 const bot = new Discord.Client({ intents: 6095 });
 
@@ -12,8 +12,8 @@ bot.commands = new Discord.Collection();
 fs.readdir("./commands/", (err, files) => {
     if(err) throw `Error loading commands: ${err}`;
 
-    files.forEach(file => { // go through all the files in the folder
-        if(!file.endsWith(".js")) return; // if file isnt js, return
+    files.forEach(file => {
+        if(!file.endsWith(".js")) return;
 
         const command = require(`./commands/${file}`);
         bot.commands.set(command.info.name, command);
@@ -27,19 +27,19 @@ bot.on("ready", () => {
 })
 
 bot.on("messageCreate", message => {
-    if(!message.content.startsWith(config.prefix)) return; // ignore message if it doesnt start with prefix
+    if(!message.content.startsWith(config.prefix)) return;
 
-    const args = message.content.split(" "); // the message content split up into words
-    const command = args.shift().toLowerCase().substr(config.prefix.length); // args.shift() takes first element of args
+    const args = message.content.split(" ");
+    const command = args.shift().toLowerCase().substr(config.prefix.length);
     
-    if(!bot.commands.has(command)) return; // if the command requested doesnt exist, return
+    if(!bot.commands.has(command)) return;
 
     const cmd = bot.commands.get(command);
 
-    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.name)) return; // if its a developer command and the user isnt a developer, return
+    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.name)) return;
 
     try {
-        cmd.run(bot, message, args); // run the command loaded in
+        cmd.run(bot, message, args);
     } catch(e) {
         console.log(`Error encountered: ${error}`);
         message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${e}\`\`\``);
