@@ -1,22 +1,31 @@
-const config = require(`../config.json`);
-const Discord = require(`discord.js`);
-const cpuStat = require(`cpu-stat`);
-const os = require(`os`);
+const config = require(`../config.json`),
+      Discord = require(`discord.js`),
+      cpuStat = require(`cpu-stat`),
+      os = require(`os`);
+
+function formatBytes(a, b) {
+    let c = 1024;
+    d = b || 2;
+    e = ['B', 'KB', 'MB', 'GB', 'TB'];
+    f = Math.floor(Math.log(a) / Math.log(c));
+
+    return parseFloat((a / Math.pow(c, f)).toFixed(d)) + '' + e[f];
+}
 
 module.exports.run = (bot, message, args) => {    
-    const days = Math.floor(bot.uptime / 86400000);
-    const hours = Math.floor(bot.uptime / 3600000) % 24;
-    const minutes = Math.floor(bot.uptime / 60000) % 60;
-    const seconds = Math.floor(bot.uptime / 1000) % 60;
+    const days = Math.floor(bot.uptime / 86400000),
+          hours = Math.floor(bot.uptime / 3600000) % 24,
+          minutes = Math.floor(bot.uptime / 60000) % 60,
+          seconds = Math.floor(bot.uptime / 1000) % 60;
 
     cpuStat.usagePercent((error, percent) => {
         if(error) throw `Error fetching cpu information: ${error}`;
 
-        const memoryusage = formatBytes(process.memoryUsage().heapUsed);
-        const node = process.version;
-        const cpu = percent.toFixed(2);
-        const cpuModel = os.cpus()[0].model;
-        const cores = os.cpus().length;
+        const memoryusage = formatBytes(process.memoryUsage().heapUsed),
+              node = process.version,
+              cpu = percent.toFixed(2),
+              cpuModel = os.cpus()[0].model,
+              cores = os.cpus().length;
 
         const embed = new Discord.MessageEmbed()
             .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
@@ -37,15 +46,6 @@ module.exports.run = (bot, message, args) => {
 
         message.channel.send({ embeds: [embed] });
     });
-}
-
-function formatBytes(a, b) {
-    let c = 1024;
-    d = b || 2;
-    e = ['B', 'KB', 'MB', 'GB', 'TB'];
-    f = Math.floor(Math.log(a) / Math.log(c));
-
-    return parseFloat((a / Math.pow(c, f)).toFixed(d)) + '' + e[f];
 }
 
 module.exports.info = {
