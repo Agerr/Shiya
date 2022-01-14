@@ -24,35 +24,28 @@ fs.readdir("./commands/", (error, files) => {
         switch (command.info.category) {
             case 'moderation':
                 commands.moderation += ` \`\`${command.info.name}\`\`,`;
-            break;
-
+                break;
             case 'information':
                 commands.information += ` \`\`${command.info.name}\`\`,`;
-            break;
-
+                break;
             case 'games':
                 commands.games += ` \`\`${command.info.name}\`\`,`;
-            break;
-
+                break;
             case 'images':
                 commands.images += ` \`\`${command.info.name}\`\`,`;
-            break;
-
+                break;
             case 'fun':
                 commands.fun += ` \`\`${command.info.name}\`\`,`;
-            break;
-
+                break;
             case 'random':
                 commands.random += ` \`\`${command.info.name}\`\`,`;
-            break;
-
+                break;
             case 'utility':
                 commands.utility += ` \`\`${command.info.name}\`\`,`;
-            break;
-
+                break;
             case 'developer':
                 commands.developer += ` \`\`${command.info.name}\`\`,`;
-            break;
+                break;
         }
     });
     
@@ -82,7 +75,7 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.info = {
     "name": "help",
-    "description:": "Sends help infomation about bot's commands",
-    "category":"information",
+    "description": "Sends help infomation about bot's commands",
+    "category": "information",
     "perm": "public"
 }

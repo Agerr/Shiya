@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.info = {
     "name": "eval",
-    "description:": "Evaluates expressions",
+    "description": "Evaluates expressions",
     "category": "developer",
     "perm": "dev"
 }
