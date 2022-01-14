@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require("../config.json");
 
-module.exports.run = (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
     const expression = args.join(" ");
     let result;
 
@@ -16,8 +16,13 @@ module.exports.run = (bot, message, args) => {
         .setColor(config.color)
         .addField('Expression:', `\`\`\`js\n${expression}\`\`\``)
         .addField('Result:', `\`\`\`js\n${result}\`\`\``);
-
-    message.channel.send({ embeds: [embed] });
+    
+    try {
+        await message.channel.send({ embeds: [embed] });
+    } catch(error) {
+        console.log(`Error encountered: ${error}`);
+        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
+    }
 }
 
 module.exports.info = {
