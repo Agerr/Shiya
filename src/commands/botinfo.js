@@ -36,7 +36,7 @@ module.exports.run = (bot, message, args) => {
             .addField('Cores: ', `${cores}`, true);
 
         message.channel.send({ embeds: [embed] });
-    })
+    });
 }
 
 function formatBytes(a, b) {
