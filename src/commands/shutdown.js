@@ -1,8 +1,9 @@
-module.exports.run = (bot, message, args, config) => {
+module.exports.run = async (bot, message, args, config) => {
     const date = new Date();
     const timeDate = `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()} @ ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()} UTC`;
 
-    console.log(`Process killed by ${message.author.name} ${timeDate}`);
+    console.log(`Process killed by ${message.author.username} ${timeDate}`);
+    await message.channel.send({ content: `Shutting Down...` });
     process.exit();
 }
 
