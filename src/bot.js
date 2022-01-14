@@ -7,7 +7,6 @@ const config = require(`./config.json`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
-// Load commands
 bot.commands = new Discord.Collection();
 fs.readdir("./commands/", (error, files) => {
     if(error) throw `Error loading commands: ${error}`;
