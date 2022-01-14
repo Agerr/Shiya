@@ -18,7 +18,7 @@ module.exports.run = (bot, message, args) => {
     servers++;
     });
 
-    cpuStat.usagePercent(function(error, percent) {
+    cpuStat.usagePercent((error, percent) => {
         if(error) throw `Error fetching cpu information: ${error}`;
 
         const memoryusage = formatBytes(process.memoryUsage().heapUsed);
