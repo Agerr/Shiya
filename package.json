@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Agerr/Botty#readme",
   "dependencies": {
-    "discord.js": "^13.5.1"
+    "cpu-stat": "^2.0.1",
+    "discord.js": "^13.5.1",
+    "os": "^0.1.2"
   }
 }

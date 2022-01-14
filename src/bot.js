@@ -7,10 +7,9 @@ const config = require(`./config.json`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
-// Load commands
 bot.commands = new Discord.Collection();
-fs.readdir("./commands/", (err, files) => {
-    if(err) throw `Error loading commands: ${err}`;
+fs.readdir("./commands/", (error, files) => {
+    if(error) throw `Error loading commands: ${error}`;
 
     files.forEach(file => {
         if(!file.endsWith(".js")) return;
@@ -20,11 +19,11 @@ fs.readdir("./commands/", (err, files) => {
         
         console.log(`Loading ${file} as ${command.info.name}`)
     })
-})
+});
 
 bot.on("ready", () => {
     console.log(`\nLogged in as ${bot.user.tag}!\n`);
-})
+});
 
 bot.on("messageCreate", message => {
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.guild === null) return;
@@ -36,14 +35,14 @@ bot.on("messageCreate", message => {
 
     const cmd = bot.commands.get(command);
 
-    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.name)) return;
+    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
 
     try {
         cmd.run(bot, message, args);
-    } catch(e) {
+    } catch(error) {
         console.log(`Error encountered: ${error}`);
-        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${e}\`\`\``);
+        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
     }
-})
+});
 
 bot.login(config.token);
