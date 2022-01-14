@@ -9,8 +9,8 @@ console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
 // Load commands
 bot.commands = new Discord.Collection();
-fs.readdir("./commands/", (err, files) => {
-    if(err) throw `Error loading commands: ${err}`;
+fs.readdir("./commands/", (error, files) => {
+    if(error) throw `Error loading commands: ${error}`;
 
     files.forEach(file => {
         if(!file.endsWith(".js")) return;
@@ -39,10 +39,10 @@ bot.on("messageCreate", message => {
     if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
 
     try {
-        cmd.run(bot, message, args);
-    } catch(e) {
+        cmd.run(bot, message, args, config);
+    } catch(error) {
         console.log(`Error encountered: ${error}`);
-        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${e}\`\`\``);
+        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
     }
 })
 
