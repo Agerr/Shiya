@@ -34,7 +34,7 @@ module.exports.run = (bot, message, args, config) => {
         .addField('Created: ', `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`)
         .addField('Added To Server: ', `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
         .addField('Servers: ', `${servers}`)
-        .addField('Serving Members: ', `${members}`, true)
+        .addField('Serving Users: ', `${members}`, true)
         .addField('Serving Channels: ', `${channels}`, true)
         .addField('UpTime: ', `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
         .addField('Node Version: ', node, true)
