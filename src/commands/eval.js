@@ -23,5 +23,6 @@ module.exports.run = (bot, message, args) => {
 module.exports.info = {
     "name": "eval",
     "description:": "Evaluates expressions",
+    "category": "developer",
     "perm": "dev"
 }
