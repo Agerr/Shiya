@@ -73,8 +73,9 @@ module.exports.run = (bot, message, args) => {
             { name: `Fun`, value: `${commands.fun}` },
             { name: `Random`, value:  `${commands.fun}`},
             { name: `Utility`, value: `${commands.utility}` },
-            { name: `Developer`, value: `${commands.developer}` },
         );
+
+    if (config.dev.includes(message.author.id)) { helpEmbed.addField(`Developer`, `${commands.developer}`, true); }
 
     message.channel.send({ embeds: [helpEmbed] });
 }
