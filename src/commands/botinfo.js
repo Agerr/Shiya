@@ -1,4 +1,5 @@
-module.exports.run = (bot, message, args, config) => {
+module.exports.run = (bot, message, args) => {
+    const config = require(`../config.json`);
     const Discord = require(`discord.js`);
     const cpuStat = require(`cpu-stat`);
     const os = require(`os`);

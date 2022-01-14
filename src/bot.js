@@ -38,7 +38,7 @@ bot.on("messageCreate", message => {
     if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
 
     try {
-        cmd.run(bot, message, args, config);
+        cmd.run(bot, message, args);
     } catch(error) {
         console.log(`Error encountered: ${error}`);
         message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);

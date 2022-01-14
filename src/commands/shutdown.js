@@ -1,4 +1,4 @@
-module.exports.run = async (bot, message, args, config) => {
+module.exports.run = async (bot, message, args) => {
     const date = new Date();
     const timeDate = `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()} @ ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()} UTC`;
 
