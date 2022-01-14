@@ -1,9 +1,9 @@
-module.exports.run = (bot, message, args) => {
-    const config = require(`../config.json`);
-    const Discord = require(`discord.js`);
-    const cpuStat = require(`cpu-stat`);
-    const os = require(`os`);
-    
+const config = require(`../config.json`);
+const Discord = require(`discord.js`);
+const cpuStat = require(`cpu-stat`);
+const os = require(`os`);
+
+module.exports.run = (bot, message, args) => {    
     const days = Math.floor(bot.uptime / 86400000);
     const hours = Math.floor(bot.uptime / 3600000) % 24;
     const minutes = Math.floor(bot.uptime / 60000) % 60;
