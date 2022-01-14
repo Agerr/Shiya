@@ -46,15 +46,15 @@ module.exports.run = (bot, message, args) => {
 
         message.channel.send({ embeds: [embed] });
     })
+}
 
-    function formatBytes(a, b) {
-        let c = 1024;
-        d = b || 2;
-        e = ['B', 'KB', 'MB', 'GB', 'TB'];
-        f = Math.floor(Math.log(a) / Math.log(c));
+function formatBytes(a, b) {
+    let c = 1024;
+    d = b || 2;
+    e = ['B', 'KB', 'MB', 'GB', 'TB'];
+    f = Math.floor(Math.log(a) / Math.log(c));
 
-        return parseFloat((a / Math.pow(c, f)).toFixed(d)) + '' + e[f];
-    }
+    return parseFloat((a / Math.pow(c, f)).toFixed(d)) + '' + e[f];
 }
 
 module.exports.info = {
