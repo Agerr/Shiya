@@ -23,7 +23,6 @@ module.exports.run = async (bot, message, args) => {
         console.log(`Error encountered: ${error}`);
         message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
     }
-    
 }
 
 module.exports.info = {
