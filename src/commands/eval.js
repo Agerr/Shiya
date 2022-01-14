@@ -1,5 +1,5 @@
-const Discord = require("discord.js")
-const config = require("../config.json")
+const Discord = require("discord.js");
+const config = require("../config.json");
 
 module.exports.run = (bot, message, args) => {
     const expression = args.join(" ");
