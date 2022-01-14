@@ -3,20 +3,11 @@ module.exports.run = (bot, message, args) => {
     const Discord = require(`discord.js`);
     const cpuStat = require(`cpu-stat`);
     const os = require(`os`);
-
+    
     const days = Math.floor(bot.uptime / 86400000);
     const hours = Math.floor(bot.uptime / 3600000) % 24;
     const minutes = Math.floor(bot.uptime / 60000) % 60;
     const seconds = Math.floor(bot.uptime / 1000) % 60;
-
-    let members = 0;
-    let channels = 0;
-    let servers = 0;
-    bot.guilds.cache.forEach(guild =>{
-    members += guild.memberCount;
-    channels += guild.channels.cache.filter(c => c.type === 'GUILD_TEXT').size;
-    servers++;
-    });
 
     cpuStat.usagePercent((error, percent) => {
         if(error) throw `Error fetching cpu information: ${error}`;
@@ -28,21 +19,21 @@ module.exports.run = (bot, message, args) => {
         const cores = os.cpus().length;
 
         const embed = new Discord.MessageEmbed()
-        .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
-        .setColor(config.color)
-        .addField('Name: ', bot.user.username, true)
-        .addField('ID: ', bot.user.id, true)
-        .addField('Created: ', `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`)
-        .addField('Added To Server: ', `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
-        .addField('Servers: ', `${servers}`)
-        .addField('Serving Users: ', `${members}`, true)
-        .addField('Serving Channels: ', `${channels}`, true)
-        .addField('UpTime: ', `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
-        .addField('Node Version: ', node, true)
-        .addField('Memory Usage: ', memoryusage, true)
-        .addField('CPU Usage: ', `${cpu}%`, true)
-        .addField('CPU Model: ', cpuModel)
-        .addField('Cores: ', `${cores}`, true);
+            .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
+            .setColor(config.color)
+            .addField('Name: ', bot.user.username, true)
+            .addField('ID: ', bot.user.id, true)
+            .addField('Created: ', `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`)
+            .addField('Added To Server: ', `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
+            .addField('Servers: ', `${bot.guilds.cache.size}`)
+            .addField('Serving Users: ', `${bot.users.cache.size}`, true)
+            .addField('Serving Channels: ', `${bot.channels.cache.size}`, true)
+            .addField('UpTime: ', `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
+            .addField('Node Version: ', node, true)
+            .addField('Memory Usage: ', memoryusage, true)
+            .addField('CPU Usage: ', `${cpu}%`, true)
+            .addField('CPU Model: ', cpuModel)
+            .addField('Cores: ', `${cores}`, true);
 
         message.channel.send({ embeds: [embed] });
     })

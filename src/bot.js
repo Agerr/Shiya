@@ -19,11 +19,11 @@ fs.readdir("./commands/", (error, files) => {
         
         console.log(`Loading ${file} as ${command.info.name}`)
     })
-})
+});
 
 bot.on("ready", () => {
     console.log(`\nLogged in as ${bot.user.tag}!\n`);
-})
+});
 
 bot.on("messageCreate", message => {
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.guild === null) return;
@@ -43,6 +43,6 @@ bot.on("messageCreate", message => {
         console.log(`Error encountered: ${error}`);
         message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
     }
-})
+});
 
 bot.login(config.token);
