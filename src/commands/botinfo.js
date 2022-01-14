@@ -50,7 +50,7 @@ function formatBytes(a, b) {
 
 module.exports.info = {
     "name": "botinfo",
-    "description:": "Sends information about bot.",
-    "category":"information",
+    "description": "Sends information about bot.",
+    "category": "information",
     "perm": "public"
 }
