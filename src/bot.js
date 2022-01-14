@@ -36,7 +36,7 @@ bot.on("messageCreate", message => {
 
     const cmd = bot.commands.get(command);
 
-    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.name)) return;
+    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
 
     try {
         cmd.run(bot, message, args);
