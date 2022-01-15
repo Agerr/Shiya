@@ -28,8 +28,8 @@ bot.on("ready", () => {
 bot.on("messageCreate", message => {
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.guild === null) return;
 
-    const args = message.content.split(" ");
-    const command = args.shift().toLowerCase().substr(config.prefix.length);
+    const args = message.content.substring(config.prefix.length).split(' ');
+    const command = args[0].toLowerCase();
     
     if(!bot.commands.has(command)) return;
 

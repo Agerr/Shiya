@@ -1,9 +1,12 @@
 const Discord = require(`discord.js`),
-      config = require(`../config.json`);
+      config = require(`../config.json`),
+      fetchMember = require(`../modules/fetchMember.js`);
 
 module.exports.run = async (bot, message, args) => {
-    const user = await message.mentions.users.first() || await message.author,
-          target = await message.guild.members.cache.get(user.id);
+    const target = await fetchMember(message, bot);
+
+    //console.log(target);
+    if (target === 1) return;
 
     const embed = new Discord.MessageEmbed()
     .setColor(config.color)
