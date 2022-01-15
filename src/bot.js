@@ -23,6 +23,8 @@ fs.readdir("./commands/", (error, files) => {
 
 bot.on("ready", () => {
     console.log(`\nLogged in as ${bot.user.tag}!\n`);
+
+    bot.user.setActivity(`${config.prefix}help`, { type: 'LISTENING' });
 });
 
 bot.on("messageCreate", message => {
