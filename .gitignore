@@ -5,4 +5,4 @@ logs
 node_modules/
 
 # Botty stuff
-config.json
+*.json
