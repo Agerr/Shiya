@@ -1,8 +1,8 @@
-const Discord = require("discord.js");
-const config = require("../config.json");
+const Discord = require("discord.js"),
+      config = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
-    const expression = args.join(" ");
+    const expression = message.content.substr(config.prefix.length + args[0].length + 1);
     let result;
 
     try {

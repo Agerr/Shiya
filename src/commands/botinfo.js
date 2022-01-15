@@ -1,7 +1,7 @@
-const config = require(`../config.json`),
-      Discord = require(`discord.js`),
+const Discord = require(`discord.js`),
       cpuStat = require(`cpu-stat`),
-      os = require(`os`);
+      os = require(`os`),
+      config = require(`../config.json`);
 
 function formatBytes(a, b) {
     let c = 1024;
