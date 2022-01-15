@@ -1,6 +1,6 @@
 module.exports.run = async (bot, message, args) => {
-    const date = new Date();
-    const timeString = `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()} @ ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()} UTC`;
+    const date = new Date(),
+          timeString = `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()} @ ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()} UTC`;
 
     console.log(`Process killed by ${message.author.tag} (${message.author.id}) ${timeString}`);
     await message.channel.send({ content: `Shutting Down...` });

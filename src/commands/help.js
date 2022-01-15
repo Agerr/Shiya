@@ -1,6 +1,6 @@
-const Discord = require(`discord.js`);
-const config = require(`../config.json`);
-const fs = require("fs");
+const Discord = require(`discord.js`),
+      config = require(`../config.json`),
+      fs = require("fs");
 
 const commands = {
     "moderation": "",
@@ -56,17 +56,17 @@ fs.readdir("./commands/", (error, files) => {
 
 module.exports.run = (bot, message, args) => {
     const helpEmbed = new Discord.MessageEmbed()
-        .setAuthor({ name:  bot.user.username + ` Commands List`, iconURL: bot.user.displayAvatarURL() })
-        .setColor(config.color)
-        .addFields(
-            { name: `Moderation`, value: `${commands.moderation}` },
-            { name: `Information`, value: `${commands.information}` },
-            { name: `Games`, value: `${commands.games}` },
-            { name: `Images`, value: `${commands.images}` },
-            { name: `Fun`, value: `${commands.fun}` },
-            { name: `Random`, value:  `${commands.fun}`},
-            { name: `Utility`, value: `${commands.utility}` },
-        );
+    .setAuthor({ name:  bot.user.username + ` Commands List`, iconURL: bot.user.displayAvatarURL() })
+    .setColor(config.color)
+    .addFields(
+        { name: `Moderation`, value: `${commands.moderation}` },
+        { name: `Information`, value: `${commands.information}` },
+        { name: `Games`, value: `${commands.games}` },
+        { name: `Images`, value: `${commands.images}` },
+        { name: `Fun`, value: `${commands.fun}` },
+        { name: `Random`, value:  `${commands.fun}`},
+        { name: `Utility`, value: `${commands.utility}` },
+    );
 
     if (config.dev.includes(message.author.id)) { helpEmbed.addField(`Developer`, `${commands.developer}`, true); }
 

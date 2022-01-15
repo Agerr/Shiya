@@ -5,7 +5,6 @@ const Discord = require(`discord.js`),
 module.exports.run = async (bot, message, args) => {
     const target = await fetchMember(message, bot);
 
-    //console.log(target);
     if (target === 1) return;
 
     const embed = new Discord.MessageEmbed()

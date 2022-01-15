@@ -2,7 +2,6 @@ const config = require(`../config.json`);
 
 module.exports = async (message, bot) => {
     const args = message.content.substring(config.prefix.length).split(' ');
-
     let target;
 
     try {

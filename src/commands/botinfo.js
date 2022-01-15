@@ -28,21 +28,21 @@ module.exports.run = (bot, message, args) => {
               cores = os.cpus().length;
 
         const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
-            .setColor(config.color)
-            .addField('Name: ', bot.user.username, true)
-            .addField('ID: ', bot.user.id, true)
-            .addField('Created: ', `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`)
-            .addField('Added To Server: ', `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
-            .addField('Servers: ', `${bot.guilds.cache.size}`)
-            .addField('Serving Users: ', `${bot.users.cache.size}`, true)
-            .addField('Serving Channels: ', `${bot.channels.cache.size}`, true)
-            .addField('UpTime: ', `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
-            .addField('Node Version: ', node, true)
-            .addField('Memory Usage: ', memoryusage, true)
-            .addField('CPU Usage: ', `${cpu}%`, true)
-            .addField('CPU Model: ', cpuModel)
-            .addField('Cores: ', `${cores}`, true);
+        .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
+        .setColor(config.color)
+        .addField('Name: ', bot.user.username, true)
+        .addField('ID: ', bot.user.id, true)
+        .addField('Created: ', `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`)
+        .addField('Added To Server: ', `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
+        .addField('Servers: ', `${bot.guilds.cache.size}`)
+        .addField('Serving Users: ', `${bot.users.cache.size}`, true)
+        .addField('Serving Channels: ', `${bot.channels.cache.size}`, true)
+        .addField('UpTime: ', `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
+        .addField('Node Version: ', node, true)
+        .addField('Memory Usage: ', memoryusage, true)
+        .addField('CPU Usage: ', `${cpu}%`, true)
+        .addField('CPU Model: ', cpuModel)
+        .addField('Cores: ', `${cores}`, true);
 
         message.channel.send({ embeds: [embed] });
     });
