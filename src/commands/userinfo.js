@@ -1,6 +1,6 @@
 const Discord = require(`discord.js`),
-      config = require(`../config.json`),
-      fetchMember = require(`../modules/fetchMember.js`);
+      fetchMember = require(`../modules/fetchMember.js`),
+      config = require(`../config.json`);
 
 module.exports.run = async (bot, message, args) => {
     const target = await fetchMember(message, bot);

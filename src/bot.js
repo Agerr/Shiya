@@ -1,6 +1,6 @@
 const Discord = require(`discord.js`),
-      fs = require("fs"),
       bot = new Discord.Client({ intents: 6095 }),
+      fs = require("fs"),
       config = require(`./config.json`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);

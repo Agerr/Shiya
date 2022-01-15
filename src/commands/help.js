@@ -1,6 +1,6 @@
 const Discord = require(`discord.js`),
-      config = require(`../config.json`),
-      fs = require("fs");
+      fs = require("fs"),
+      config = require(`../config.json`);
 
 const commands = {
     "moderation": "",
