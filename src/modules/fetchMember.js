@@ -13,7 +13,7 @@ module.exports = async (message, bot) => {
             target = await message.guild.members.cache.get(await bot.users.cache.find(user => user.username.toLowerCase() == args[1].toLowerCase()).id);
         }
     } catch (error) {
-        target = 1;
+        target = false;
         message.channel.send({ content: `Couldn't fetch member.` });
     }
     return target;

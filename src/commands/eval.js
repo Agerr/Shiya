@@ -12,10 +12,10 @@ module.exports.run = async (bot, message, args) => {
     }
 
     const embed = new Discord.MessageEmbed()
-    .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
-    .setColor(config.color)
-    .addField('Expression:', `\`\`\`js\n${expression}\`\`\``)
-    .addField('Result:', `\`\`\`js\n${result}\`\`\``);
+        .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
+        .setColor(config.color)
+        .addField('Expression:', `\`\`\`js\n${expression}\`\`\``)
+        .addField('Result:', `\`\`\`js\n${result}\`\`\``);
     
     try {
         await message.channel.send({ embeds: [embed] });
