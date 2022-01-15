@@ -1,7 +1,8 @@
 const Discord = require(`discord.js`),
       bot = new Discord.Client({ intents: 6095 }),
       fs = require("fs"),
-      config = require(`./config.json`);
+      config = require(`./config.json`),
+      dbHandler = require("./modules/dbHandler.js");
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
@@ -39,6 +40,7 @@ bot.on("messageCreate", message => {
 
     try {
         cmd.run(bot, message, args);
+        dbHandler.addUse(command, message.author.id);
     } catch(error) {
         console.log(`Error encountered: ${error}`);
         message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
