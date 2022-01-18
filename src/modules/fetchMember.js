@@ -5,7 +5,7 @@ module.exports = async (message, bot) => {
     const args = message.content.substring(config.prefix.length).split(' ');
     let target;
 
-    if (args[1]){
+    if (args[1]) {
         try {
             if (message.mentions.users.first()) {
                 target = await message.guild.members.cache.get(await message.mentions.users.first().id);
@@ -26,10 +26,11 @@ module.exports = async (message, bot) => {
     
                         embed = new Discord.MessageEmbed()
                             .setColor(config.color)
-                            .setTitle(`Multiple users have this name:`)
-                            .setDescription(`${usersList}`);
+                            .setTitle(`Multiple users share this name:`)
+                            .setDescription(`${usersList}\nTry using @mention, id or name#tag`);
     
-                        message.channel.send({ embeds: [embed] });
+                        await message.channel.send({ embeds: [embed] });
+                        return false;
                     }
                 }
             }
@@ -42,7 +43,7 @@ module.exports = async (message, bot) => {
 
     if (target == undefined) { 
         target = false;
-        message.channel.send({ content: `Could't find this member.` });
+        message.channel.send({ content: `Couldn't find this member.` });
     }
 
     return target;
