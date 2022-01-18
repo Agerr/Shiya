@@ -14,7 +14,7 @@ module.exports = async (message, bot) => {
             } else {
                 target = await message.guild.members.cache.find(member => member.user.tag.toLowerCase() == args[1].toLowerCase())
                 if (target == undefined) {
-                    let membersArray = Array.from(await message.guild.members.cache.filter(member => member.user.username.toLowerCase() == args[1].toLowerCase()).values());
+                    let membersArray = Array.from(await message.guild.members.cache.filter(member => member.user.username.toLowerCase().startsWith(args[1].toLowerCase())).values());
 
                     if (membersArray.length == 1) {
                         target = await message.guild.members.cache.get((membersArray[0].user.id));
