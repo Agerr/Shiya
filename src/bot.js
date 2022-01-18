@@ -26,7 +26,7 @@ bot.on("ready", () => {
     bot.user.setActivity(`${config.prefix}help`, { type: 'LISTENING' });
 });
 
-bot.on("messageCreate", message => {
+bot.on("messageCreate", async message => {
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.guild === null) return;
 
     const args = message.content.substring(config.prefix.length).split(' '),
@@ -39,7 +39,7 @@ bot.on("messageCreate", message => {
     if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
 
     try {
-        cmd.run(bot, message, args);
+        await cmd.run(bot, message, args);
         dbHandler.addUse(command, message.author.id);
     } catch(error) {
         console.log(`Error encountered: ${error}`);
