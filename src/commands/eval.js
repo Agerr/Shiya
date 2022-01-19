@@ -1,8 +1,13 @@
 const Discord = require("discord.js"),
       config = require("../config.json");
 
+function send(message, str) { message.channel.send(str); }
+function dm(user, str) { user.send(str); }
+function saveJSON(path, object) { fs.writeFileSync(path, JSON.stringify(object, null, 4)); }
+
 module.exports.run = async (bot, message, args) => {
     const m = msg = message;
+
     const expression = message.content.substr(config.prefix.length + args[0].length + 1);
     let result;
 
