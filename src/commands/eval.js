@@ -2,6 +2,7 @@ const Discord = require("discord.js"),
       config = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
+    const m = msg = message;
     const expression = message.content.substr(config.prefix.length + args[0].length + 1);
     let result;
 
