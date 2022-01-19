@@ -11,6 +11,8 @@ function dm(user, str) { user.send(str); }
 function saveJSON(path, object) { fs.writeFileSync(path, JSON.stringify(object, null, 4)); }
 function objectList(object) { let x=""; for(y in object) {x+=`${y}: ${object[y]}\n`;} return x.trim(); }
 function getUsage() { return require("../json/usage.json"); }
+function resetStatus(bot) { bot.user.setActivity(`${config.prefix}help`, { type: "LISTENING" }); }
+function setStatus(bot, type, str) { bot.user.setActivity(str, { type: type }); }
 
 module.exports.run = async (bot, message, args) => {
     const m = msg = message;
