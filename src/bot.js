@@ -36,7 +36,7 @@ bot.on("messageCreate", async message => {
 
         bot.channels.cache.get(config.dmChannelId).send({ embeds: [embed] }); 
     }
-
+  
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.guild === null) return;
 
     const args = message.content.substring(config.prefix.length).split(' '),
@@ -48,13 +48,20 @@ bot.on("messageCreate", async message => {
 
     if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
 
+    let success,
+        errorEncountered;
     try {
         await cmd.run(bot, message, args);
         dbHandler.addUse(command, message.author.id);
+        success = true;
     } catch(error) {
-        console.log(`Error encountered: ${error}`);
+        errorEncountered = error;
         message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
+        success = false;
     }
+
+    if(success) console.log(`\x1b[32m${message.author.tag} (${message.author.id}) ran ${config.prefix}${command}\x1b[39m`);
+    else console.log(`\x1b[31m${message.author.tag} (${message.author.id}) ran ${config.prefix}${command}\x1b[39m\n\tError encountered: ${errorEncountered}`);
 });
 
 bot.login(config.token);
