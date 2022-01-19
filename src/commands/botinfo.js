@@ -12,7 +12,7 @@ function formatBytes(a, b) {
     return parseFloat((a / Math.pow(c, f)).toFixed(d)) + `` + e[f];
 }
 
-module.exports.run = (bot, message, args) => {    
+module.exports.run = (bot, message, args) => {
     const days = Math.floor(bot.uptime / 86400000),
           hours = Math.floor(bot.uptime / 3600000) % 24,
           minutes = Math.floor(bot.uptime / 60000) % 60,

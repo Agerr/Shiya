@@ -1,5 +1,5 @@
 const fetchMember = require(`../modules/fetchMember.js`),
-    config = require(`../config.json`);
+      config = require(`../config.json`);
 
 module.exports.run = async (bot, message, args) => {
     let target = await fetchMember(message, bot);
