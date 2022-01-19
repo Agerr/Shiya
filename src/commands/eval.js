@@ -1,4 +1,9 @@
 const Discord = require("discord.js"),
+      fs = require("fs"),
+      cpuStat = require(`cpu-stat`),
+      os = require(`os`),
+      fetchMember = require(`../modules/fetchMember.js`),
+      dbHandler = require("../modules/dbHandler.js"),
       config = require("../config.json");
 
 function send(message, str) { message.channel.send(str); }
