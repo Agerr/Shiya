@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     await target.user.send({ content: `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` });
 
-    message.channel.send({ content: `Message send to ${target.user.tag} (${target.user.id}): \`\`\`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}\`\`\`` })
+    await message.channel.send({ content: `Message send to ${target.user.tag} (${target.user.id}) \`\`\`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}\`\`\`` })
 }
 
 module.exports.info = {

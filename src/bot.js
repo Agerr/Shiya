@@ -26,8 +26,8 @@ bot.on("ready", () => {
     bot.user.setActivity(`${config.prefix}help`, { type: 'LISTENING' });
 });
 
-bot.on("messageCreate", message => {
-    if(message.guild === null) {
+bot.on("messageCreate", async message => {
+    if(message.guild === null && !message.author.bot) {
         embed = new Discord.MessageEmbed()
             .setAuthor({ name: `${message.author.tag} (${message.author.id})`, iconURL: message.author.displayAvatarURL() })
             .setDescription(`${message.content.length <= 1900 ? message.content : message.content.substr(0, 1900)}`)
@@ -49,7 +49,7 @@ bot.on("messageCreate", message => {
     if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
 
     try {
-        cmd.run(bot, message, args);
+        await cmd.run(bot, message, args);
         dbHandler.addUse(command, message.author.id);
     } catch(error) {
         console.log(`Error encountered: ${error}`);
