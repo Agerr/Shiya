@@ -1,17 +1,17 @@
 const Discord = require(`discord.js`),
-      bot = new Discord.Client({ intents: 4611, partials: ['CHANNEL']}),
-      fs = require("fs"),
+      bot = new Discord.Client({ intents: 4611, partials: [`CHANNEL`]}),
+      fs = require(`fs`),
       config = require(`./config.json`),
-      dbHandler = require("./modules/dbHandler.js");
+      dbHandler = require(`./modules/dbHandler.js`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
 bot.commands = new Discord.Collection();
-fs.readdir("./commands/", (error, files) => {
+fs.readdir(`./commands/`, (error, files) => {
     if(error) throw `Error loading commands: ${error}`;
 
     files.forEach(file => {
-        if(!file.endsWith(".js")) return;
+        if(!file.endsWith(`.js`)) return;
 
         const command = require(`./commands/${file}`);
         bot.commands.set(command.info.name, command);
@@ -20,13 +20,13 @@ fs.readdir("./commands/", (error, files) => {
     })
 });
 
-bot.on("ready", () => {
+bot.on(`ready`, () => {
     console.log(`\nLogged in as ${bot.user.tag}!\n`);
 
-    bot.user.setActivity(`${config.prefix}help`, { type: 'LISTENING' });
+    bot.user.setActivity(`${config.prefix}help`, { type: `LISTENING` });
 });
 
-bot.on("messageCreate", async message => {
+bot.on(`messageCreate`, async message => {
     if(message.guild === null && !message.author.bot) {
         embed = new Discord.MessageEmbed()
             .setAuthor({ name: `${message.author.tag} (${message.author.id})`, iconURL: message.author.displayAvatarURL() })
@@ -39,14 +39,14 @@ bot.on("messageCreate", async message => {
   
     if(!message.content.startsWith(config.prefix) || message.author.bot || message.guild === null) return;
 
-    const args = message.content.substring(config.prefix.length).split(' '),
+    const args = message.content.substring(config.prefix.length).split(` `),
           command = args[0].toLowerCase();
     
     if(!bot.commands.has(command)) return;
 
     const cmd = bot.commands.get(command);
 
-    if(cmd.info.perm == "dev" && !config.dev.includes(message.author.id)) return;
+    if(cmd.info.perm == `dev` && !config.dev.includes(message.author.id)) return;
 
     let success,
         errorEncountered;
