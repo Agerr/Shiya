@@ -23,6 +23,8 @@ module.exports.run = async (bot, message, args) => {
     } catch (error) {
         result = error;
     }
+
+    if(result == "") result = "<empty response>"
     
     const embed = new Discord.MessageEmbed()
             .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
