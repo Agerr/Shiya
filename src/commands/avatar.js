@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     if (target === false) return;
 
     const embed = new Discord.MessageEmbed()
-        .setTitle(`${target.user.tag}'s Avatar`)
+        .setAuthor({ name: `${target.user.tag}'s Avatar`,  iconUrl: target.user.avatarURL() })
         .setColor(config.color)
         .setURL(target.user.displayAvatarURL())
         .setImage(target.user.displayAvatarURL({ dynamic: true, size: 1024 }));
