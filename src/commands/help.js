@@ -1,5 +1,5 @@
 const Discord = require(`discord.js`),
-      fs = require("fs"),
+      fs = require(`fs`),
       config = require(`../config.json`);
 
 const commands = {
@@ -13,37 +13,37 @@ const commands = {
     "developer": ""
 }
 
-fs.readdir("./commands/", (error, files) => {
+fs.readdir(`./commands/`, (error, files) => {
     if(error) throw `Error reading commands: ${error}`;
 
     files.forEach(file => {
-        if(!file.endsWith(".js")) return;
+        if(!file.endsWith(`.js`)) return;
 
         const command = require(`./${file}`);
         
         switch (command.info.category) {
-            case 'moderation':
+            case `moderation`:
                 commands.moderation += ` \`\`${command.info.name}\`\`,`;
                 break;
-            case 'information':
+            case `information`:
                 commands.information += ` \`\`${command.info.name}\`\`,`;
                 break;
-            case 'games':
+            case `games`:
                 commands.games += ` \`\`${command.info.name}\`\`,`;
                 break;
-            case 'images':
+            case `images`:
                 commands.images += ` \`\`${command.info.name}\`\`,`;
                 break;
-            case 'fun':
+            case `fun`:
                 commands.fun += ` \`\`${command.info.name}\`\`,`;
                 break;
-            case 'random':
+            case `random`:
                 commands.random += ` \`\`${command.info.name}\`\`,`;
                 break;
-            case 'utility':
+            case `utility`:
                 commands.utility += ` \`\`${command.info.name}\`\`,`;
                 break;
-            case 'developer':
+            case `developer`:
                 commands.developer += ` \`\`${command.info.name}\`\`,`;
                 break;
         }

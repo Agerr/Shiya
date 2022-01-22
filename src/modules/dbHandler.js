@@ -1,5 +1,5 @@
-const fs = require("fs"),
-      usageData = require("../json/usage.json");
+const fs = require(`fs`),
+      usageData = require(`../json/usage.json`);
 
 module.exports.addUse = (command, id) => {
     if(!usageData.global[command]) usageData.global[command] = 0;
@@ -11,5 +11,5 @@ module.exports.addUse = (command, id) => {
     usageData[id].total++;
     usageData[id][command]++;
 
-    return fs.writeFileSync("./json/usage.json", JSON.stringify(usageData, null, 4));
+    return fs.writeFileSync(`./json/usage.json`, JSON.stringify(usageData, null, 4));
 }

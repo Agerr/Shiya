@@ -2,7 +2,7 @@ const Discord = require(`discord.js`),
       config = require(`../config.json`);
 
 module.exports = async (message, bot) => {
-    const args = await message.content.substring(config.prefix.length).split(' ');
+    const args = await message.content.substring(config.prefix.length).split(` `);
     let target;
 
     if (args[1]) {
