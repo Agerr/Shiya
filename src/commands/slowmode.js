@@ -1,5 +1,5 @@
 module.exports.run = async (bot, message, args) => {
-    if (!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send({ content: `The \`\`${args[0]}\`\` command requires "Manage channels" permission. `});
+    if (!message.member.permissions.has(`MANAGE_CHANNELS`)) return message.channel.send({ content: `The \`${args[0]}\` command requires "Manage channels" permission. `});
 
     if (!/^0|([1-9]\d*)$/.test(args[1])) return message.channel.send({ content: `Invalid amount.` });
 
