@@ -40,6 +40,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.info = {
     "name": "eval",
     "description": "Evaluates expressions",
+    "usage": "eval [expression]",
     "category": "developer",
     "perm": "dev"
 }

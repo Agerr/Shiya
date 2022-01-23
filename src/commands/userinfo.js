@@ -23,6 +23,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.info = {
     "name": "userinfo",
     "description": "Sends information about user.",
+    "usage": "userinfo [mention | id | name | tag]",
     "category": "information",
     "perm": "public"
 }
