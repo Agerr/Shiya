@@ -97,7 +97,7 @@ module.exports.info = {
     "name": "help",
     "description": "Sends help infomation about bot's commands",
     "usage": "help <command>",
-    "alias": "none",
+    "alias": "None",
     "category": "information",
     "perm": "public"
 }
