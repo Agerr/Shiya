@@ -10,6 +10,8 @@ module.exports.run = async (bot, message, args) => {
 module.exports.info = {
     "name": "slowmode",
     "description": "Updates channel slowmode",
+    "usage": "slowmode [amount]",
+    "alias": "sm",
     "category": "moderation",
     "perm": "public"
 }
