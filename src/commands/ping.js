@@ -8,7 +8,7 @@ module.exports.info = {
     "name": "ping",
     "description": "Sends bot's and api's latency",
     "usage": "ping",
-    "alias": "None",
+    "aliases": [`ping`],
     "category": "information",
     "perm": "public"
 }

@@ -17,7 +17,7 @@ module.exports.info = {
     "name": "dm",
     "description": "Direct messages specified user",
     "usage": "dm [mention | id | name | tag]",
-    "alias": "dm",
+    "aliases": [`dm`, `send`],
     "category": "developer",
     "perm": "dev"
 }
