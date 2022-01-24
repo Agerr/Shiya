@@ -20,6 +20,7 @@ module.exports.info = {
     "name": "avatar",
     "description": "Sends user's avatar",
     "usage": "avatar [mention | id | name | tag]",
+    "alias": "none",
     "category": "information",
     "perm": "public"
 }

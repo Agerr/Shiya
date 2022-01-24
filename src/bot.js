@@ -6,6 +6,7 @@ const Discord = require(`discord.js`),
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
+bot.aliases = new Discord.Collection();
 bot.commands = new Discord.Collection();
 fs.readdir(`./commands/`, (error, files) => {
     if(error) throw `Error loading commands: ${error}`;
@@ -14,6 +15,7 @@ fs.readdir(`./commands/`, (error, files) => {
         if(!file.endsWith(`.js`)) return;
 
         const command = require(`./commands/${file}`);
+        if (command.info.alias != 'none') bot.aliases.set(command.info.alias, command);
         bot.commands.set(command.info.name, command);
         
         console.log(`Loading ${file} as ${command.info.name}`)
@@ -42,9 +44,9 @@ bot.on(`messageCreate`, async message => {
     const args = message.content.substring(config.prefix.length).split(` `),
           command = args[0].toLowerCase();
     
-    if(!bot.commands.has(command)) return;
+    if(!bot.commands.has(command) && !bot.aliases.has(command)) return;
 
-    const cmd = bot.commands.get(command);
+    const cmd = bot.commands.has(command) ? bot.commands.get(command) : bot.aliases.get(command);
 
     if(cmd.info.perm == `dev` && !config.dev.includes(message.author.id)) return;
 

@@ -57,15 +57,18 @@ fs.readdir(`./commands/`, (error, files) => {
 module.exports.run = (bot, message, args) => {
     if (args[1]) {
 
-        if (!bot.commands.has(args[1].toLowerCase())) return message.channel.send({ content: `Command \`${args[1].toLowerCase()}\` doesn't exist.` })
+        if (!bot.commands.has(args[1].toLowerCase()) && !bot.aliases.has(args[1].toLowerCase())) return message.channel.send({ content: `Command \`${args[1].toLowerCase()}\` doesn't exist.` })
+
+        const cmd = bot.commands.has(args[1].toLowerCase()) ? bot.commands.get(args[1].toLowerCase()) : bot.aliases.get(args[1].toLowerCase());
 
         const commandHelpEmbed = new Discord.MessageEmbed()
-            .setTitle(`Command's ${args[1].toLowerCase()} info`)
+            .setTitle(`Command's ${cmd.info.name} info`)
             .setColor(config.color)
             .setFooter({ text: `Usage syntax: [required] <optional>` })
             .setFields(
-                { name: `Description`, value: `${bot.commands.get(args[1].toLowerCase()).info.description}` },
-                { name: `Usage`, value: `\`${config.prefix}${bot.commands.get(args[1].toLowerCase()).info.usage}\`` }
+                { name: `Description`, value: `${cmd.info.description}` },
+                { name: `Usage`, value: `\`${config.prefix}${cmd.info.usage}\`` },
+                { name: `Alias`, value: `${cmd.info.alias}` }
             );
 
         message.channel.send({ embeds: [commandHelpEmbed] });
@@ -94,6 +97,7 @@ module.exports.info = {
     "name": "help",
     "description": "Sends help infomation about bot's commands",
     "usage": "help <command>",
+    "alias": "none",
     "category": "information",
     "perm": "public"
 }
