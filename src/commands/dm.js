@@ -4,7 +4,7 @@ const fetchMember = require(`../modules/fetchMember.js`),
 module.exports.run = async (bot, message, args) => {
     if (!args[1]) return message.channel.send({ content: `Couldn't find this member.` });
 
-    const target = await fetchMember(args[1]);
+    const target = await fetchMember(message, args[1]);
 
     if (target === false) return;
 

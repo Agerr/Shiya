@@ -1,7 +1,7 @@
 const Discord = require(`discord.js`),
       config = require(`../config.json`);
 
-module.exports = async (memberInfo) => {
+module.exports = async (message, memberInfo) => {
     let target;
 
     try {
