@@ -10,7 +10,7 @@ module.exports.info = {
     "name": "perms",
     "description": "Sends users permissions",
     "usage": "perms [mention | id | name | tag]",
-    "alias": [`perms`],
+    "alias": [],
     "category": "information",
     "perm": "public"
 }
