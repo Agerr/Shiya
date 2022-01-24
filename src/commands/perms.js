@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
         Current channel - ♨️
 
         📛 | ♨️
+
         ${target.permissions.has(`CREATE_INSTANT_INVITE`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`CREATE_INSTANT_INVITE`) ? yesEmote : noEmote} - Create Invite
         ${target.permissions.has(`KICK_MEMBERS`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`KICK_MEMBERS`) ? yesEmote : noEmote} - Kick Members
         ${target.permissions.has(`BAN_MEMBERS`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`BAN_MEMBERS`) ? yesEmote : noEmote} - Ban Members
