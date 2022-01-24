@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.info = {
     "name": "dm",
-    "description": "Dirrect messages specified user.",
+    "description": "Dirrect messages specified user",
     "usage": "dm [mention | id | name | tag]",
     "category": "developer",
     "perm": "dev"
