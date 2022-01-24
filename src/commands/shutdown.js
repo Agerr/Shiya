@@ -11,7 +11,7 @@ module.exports.info = {
     "name": "shutdown",
     "description": "Kills process",
     "usage": "shutdown",
-    "aliases": [`shutdown`, `kill`],
+    "aliases": [`kill`],
     "category": "developer",
     "perm": "dev"
 }

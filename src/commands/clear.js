@@ -14,7 +14,7 @@ module.exports.info = {
     "name": "clear",
     "description": "Bulk deletes up to 99 messages",
     "usage": "clear [amount]",
-    "aliases": [`clear`, `purge`],
+    "aliases": [`purge`],
     "category": "moderation",
     "perm": "public"
 }

@@ -88,7 +88,7 @@ module.exports.run = (bot, message, args) => {
 module.exports.info = {
     "name": "botinfo",
     "description": "Sends information about bot",
-    "aliases": [`botinfo`, `binfo`],
+    "aliases": [`binfo`],
     "usage": "botinfo",
     "category": "information",
     "perm": "public"
