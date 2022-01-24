@@ -23,9 +23,9 @@ module.exports.run = async (bot, message, args) => {
         ${target.permissions.has(`CREATE_INSTANT_INVITE`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`CREATE_INSTANT_INVITE`) ? yesEmote : noEmote} - Create Invite
         ${target.permissions.has(`KICK_MEMBERS`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`KICK_MEMBERS`) ? yesEmote : noEmote} - Kick Members
         ${target.permissions.has(`BAN_MEMBERS`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`BAN_MEMBERS`) ? yesEmote : noEmote} - Ban Members
-        ${target.permissions.has(`MODERATE_MEMBERS `) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`MODERATE_MEMBERS `) ? yesEmote : noEmote} - Moderate Members
-        ${target.permissions.has(`ADMINISTRATOR `) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`ADMINISTRATOR `) ? yesEmote : noEmote} - Administrator
-        ${target.permissions.has(`MANAGE_CHANNELS `) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`MANAGE_CHANNELS `) ? yesEmote : noEmote} - Manage Channels
+        ${target.permissions.has(`MODERATE_MEMBERS`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`MODERATE_MEMBERS`) ? yesEmote : noEmote} - Moderate Members
+        ${target.permissions.has(`ADMINISTRATOR`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`ADMINISTRATOR`) ? yesEmote : noEmote} - Administrator
+        ${target.permissions.has(`MANAGE_CHANNELS`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`MANAGE_CHANNELS`) ? yesEmote : noEmote} - Manage Channels
         ${target.permissions.has(`MANAGE_GUILD`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`MANAGE_GUILD`) ? yesEmote : noEmote} - Manage Guild
         ${target.permissions.has(`MANAGE_MESSAGES`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`MANAGE_MESSAGES`) ? yesEmote : noEmote} - Manage Messages
         ${target.permissions.has(`MANAGE_NICKNAMES`) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(`MANAGE_NICKNAMES`) ? yesEmote : noEmote} - Manage Nicknames
