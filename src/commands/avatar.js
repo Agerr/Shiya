@@ -3,8 +3,10 @@ const Discord = require(`discord.js`),
       config = require(`../config.json`);
 
 module.exports.run = async (bot, message, args) => {
-    let target = await fetchMember(message);
+    if (!args[1]) return message.channel.send({ content: `Couldn't find this member.` });
 
+    const target = await fetchMember(args[1]);
+    
     if (target === false) return;
 
     const embed = new Discord.MessageEmbed()
