@@ -26,7 +26,7 @@ module.exports.info = {
     "name": "userinfo",
     "description": "Sends information about user",
     "usage": "userinfo [mention | id | name | tag]",
-    "alias": "uinfo",
+    "aliases": [`userinfo`, `uinfo`],
     "category": "information",
     "perm": "public"
 }
