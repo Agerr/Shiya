@@ -1,4 +1,8 @@
-module.exports.run = (bot, message, args) => {
+const Discord = require(`discord.js`),
+      fetchMember = require(`../modules/fetchMember.js`),
+      config = require(`../config.json`);
+
+module.exports.run = async (bot, message, args) => {
     
 }
 
