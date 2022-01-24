@@ -14,6 +14,7 @@ fs.readdir(`./commands/`, (error, files) => {
         if(!file.endsWith(`.js`)) return;
 
         const command = require(`./commands/${file}`);
+        bot.commands.set(command.info.name, command);
         command.info.aliases.forEach(alias => {
             bot.commands.set(alias, command);
         });

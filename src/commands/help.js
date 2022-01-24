@@ -68,10 +68,10 @@ module.exports.run = (bot, message, args) => {
             .setFields(
                 { name: `Description`, value: `${cmd.info.description}` },
                 { name: `Usage`, value: `\`${config.prefix}${cmd.info.usage}\`` },
-                { name: `Aliases`, value: `${cmd.info.aliases.join(`, `)}` }
+                { name: `Aliases`, value: `${cmd.info.aliases.length > 0 ? cmd.info.aliases.join(`, `) : `None`}` }
             );
 
-        message.channel.send({ embeds: [commandHelpEmbed] });
+        message.channel.send({ content: `length > 0 ${cmd.info.aliases.length > 0} (${cmd.info.aliases.length})`, embeds: [commandHelpEmbed] });
 
     } else {
         const helpEmbed = new Discord.MessageEmbed()
@@ -97,7 +97,7 @@ module.exports.info = {
     "name": "help",
     "description": "Sends help infomation about bot's commands",
     "usage": "help <command>",
-    "aliases": [`help`],
+    "aliases": [],
     "category": "information",
     "perm": "public"
 }

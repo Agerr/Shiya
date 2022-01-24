@@ -41,7 +41,7 @@ module.exports.info = {
     "name": "eval",
     "description": "Evaluates expressions",
     "usage": "eval [expression]",
-    "aliases": [`eval`, `run`],
+    "aliases": [`run`],
     "category": "developer",
     "perm": "dev"
 }
