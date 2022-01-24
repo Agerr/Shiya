@@ -71,7 +71,7 @@ module.exports.run = (bot, message, args) => {
                 { name: `Aliases`, value: `${cmd.info.aliases.length > 0 ? cmd.info.aliases.join(`, `) : `None`}` }
             );
 
-        message.channel.send({ content: `length > 0 ${cmd.info.aliases.length > 0} (${cmd.info.aliases.length})`, embeds: [commandHelpEmbed] });
+        message.channel.send({ embeds: [commandHelpEmbed] });
 
     } else {
         const helpEmbed = new Discord.MessageEmbed()
