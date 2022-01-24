@@ -10,6 +10,8 @@ module.exports.run = async (bot, message, args) => {
 module.exports.info = {
     "name": "shutdown",
     "description": "Kills process",
+    "usage": "shutdown",
+    "alias": "kill",
     "category": "developer",
     "perm": "dev"
 }
