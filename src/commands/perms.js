@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
 
     permissions.forEach(perm =>{
         permsOutput += `${target.permissions.has(perm) ? yesEmote : noEmote} | ${target.permissionsIn(message.channel).has(perm) ? yesEmote : noEmote} - ${wordsUpperCase(perm)}\n`;
-    })
+    });
 
     const permissionsEmbed = new Discord.MessageEmbed()
         .setAuthor({ name: `${target.user.tag}'s permissions`, iconURL: target.user.avatarURL() })
@@ -50,5 +50,6 @@ module.exports.info = {
     "usage": "perms [mention | id | name | tag]",
     "aliases": [],
     "category": "information",
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_EMOJIS`],
     "perm": "public"
 }
