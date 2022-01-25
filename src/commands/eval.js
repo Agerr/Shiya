@@ -43,5 +43,6 @@ module.exports.info = {
     "usage": "eval [expression]",
     "aliases": [`run`],
     "category": "developer",
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "dev"
 }

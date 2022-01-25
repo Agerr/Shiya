@@ -50,6 +50,6 @@ module.exports.info = {
     "usage": "perms [mention | id | name | tag]",
     "aliases": [],
     "category": "information",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_EMOJIS`],
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }
