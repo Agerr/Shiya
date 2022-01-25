@@ -15,6 +15,9 @@ fs.readdir(`./commands/`, (error, files) => {
 
         const command = require(`./commands/${file}`);
         bot.commands.set(command.info.name, command);
+        command.info.aliases.forEach(alias => {
+            bot.commands.set(alias, command);
+        });
         
         console.log(`Loading ${file} as ${command.info.name}`)
     })
