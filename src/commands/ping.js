@@ -1,5 +1,5 @@
 module.exports.run = (bot, message, args) => {
-    message.channel.send(`Calculating ping...`).then((resultMessage) => {
+    message.channel.send({ content: `Calculating ping...` }).then((resultMessage) => {
         resultMessage.edit({ content: `Bot latency: \`${resultMessage.createdTimestamp - message.createdTimestamp}ms\`, API latency: \`${bot.ws.ping}ms\`.` });
     });
 }

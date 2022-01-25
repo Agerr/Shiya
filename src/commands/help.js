@@ -23,28 +23,28 @@ fs.readdir(`./commands/`, (error, files) => {
         
         switch (command.info.category) {
             case `moderation`:
-                commands.moderation += ` \`\`${command.info.name}\`\`,`;
+                commands.moderation += ` \`${command.info.name}\`,`;
                 break;
             case `information`:
-                commands.information += ` \`\`${command.info.name}\`\`,`;
+                commands.information += ` \`${command.info.name}\`,`;
                 break;
             case `games`:
-                commands.games += ` \`\`${command.info.name}\`\`,`;
+                commands.games += ` \`${command.info.name}\`,`;
                 break;
             case `images`:
-                commands.images += ` \`\`${command.info.name}\`\`,`;
+                commands.images += ` \`${command.info.name}\`,`;
                 break;
             case `fun`:
-                commands.fun += ` \`\`${command.info.name}\`\`,`;
+                commands.fun += ` \`${command.info.name}\`,`;
                 break;
             case `random`:
-                commands.random += ` \`\`${command.info.name}\`\`,`;
+                commands.random += ` \`${command.info.name}\`,`;
                 break;
             case `utility`:
-                commands.utility += ` \`\`${command.info.name}\`\`,`;
+                commands.utility += ` \`${command.info.name}\`,`;
                 break;
             case `developer`:
-                commands.developer += ` \`\`${command.info.name}\`\`,`;
+                commands.developer += ` \`${command.info.name}\`,`;
                 break;
         }
     });
