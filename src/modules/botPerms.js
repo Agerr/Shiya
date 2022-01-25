@@ -30,7 +30,7 @@ module.exports = async (message, info) => {
             .setDescription(permsOutput)
             .setFooter({ text: `Please enable these permissions` })
 
-        await (message.guild.me.permissionsIn(message.channel).has(`VIEW_CHANNEL`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES_IN_THREADS`)) ? await message.channel.send({ embeds: [permissionsEmbed] }) : await message.author.send({ embeds: [permissionsEmbed] }).catch((error) => {});
+        await (message.guild.me.permissionsIn(message.channel).has(`VIEW_CHANNEL`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES_IN_THREADS`)) ? await message.channel.send({ embeds: [permissionsEmbed] }).catch((error) => {}) : await message.author.send({ embeds: [permissionsEmbed] }).catch((error) => {});
 
         return hasPerms;
     }
