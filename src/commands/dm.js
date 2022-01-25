@@ -10,7 +10,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[2]) return message.channel.send({ content: `You didn't input the message.` });
 
-    await target.user.send({ content: `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` });
+    await target.user.send({ content: `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` }).catch((error) => {
+        message.channel.send({ content: `Message couldn't be send.` });
+    });
 
     await message.channel.send({ content: `Message send to ${target.user.tag} (${target.user.id}) \`\`\`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}\`\`\`` })
 }
