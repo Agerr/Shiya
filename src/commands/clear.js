@@ -16,6 +16,7 @@ module.exports.info = {
     "usage": "clear [amount]",
     "aliases": [`purge`],
     "category": "moderation",
+    "guildonly": true,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `MANAGE_MESSAGES`],
     "perm": "public"
 }

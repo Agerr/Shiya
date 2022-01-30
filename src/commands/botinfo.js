@@ -62,24 +62,24 @@ module.exports.run = (bot, message, args) => {
               cores = os.cpus().length;
 
         const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
-            .setColor(config.color)
-            .addField(`Name: `, bot.user.username, true)
-            .addField(`ID: `, bot.user.id, true)
-            .addField(`Created: `, `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`)
-            .addField(`Added To Server: `, `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
-            .addField(`Servers: `, `${bot.guilds.cache.size}`)
-            .addField(`Serving Users: `, `${bot.users.cache.size}`, true)
-            .addField(`Serving Channels: `, `${bot.channels.cache.filter(channel => channel.type != 'GUILD_CATEGORY').size}`, true)
-            .addField(`UpTime: `, `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
-            .addField(`Node Version: `, node, true)
-            .addField(`Memory Usage: `, memoryusage, true)
-            .addField(`CPU Usage: `, `${cpu}%`, true)
-            .addField(`CPU Model: `, cpuModel)
-            .addField(`Cores: `, `${cores}`)
-            .addField(`Bot file: `, `${botLines} lines (${botSize}KB)`, true)
-            .addField(`Module files: `, `${moduleLines} lines (${moduleSize}KB)`, true)
-            .addField(`Command files: `, `${commandLines} lines (${commandSize}KB)`, true);
+            embed.setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
+            embed.setColor(config.color)
+            embed.addField(`Name: `, bot.user.username, true)
+            embed.addField(`ID: `, bot.user.id, true)
+            embed.addField(`Created: `, `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`)
+            if (message.guild != null) embed.addField(`Added To Server: `, `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
+            embed.addField(`Servers: `, `${bot.guilds.cache.size}`)
+            embed.addField(`Serving Users: `, `${bot.users.cache.size}`, true)
+            embed.addField(`Serving Channels: `, `${bot.channels.cache.filter(channel => channel.type != 'GUILD_CATEGORY').size}`, true)
+            embed.addField(`UpTime: `, `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
+            embed.addField(`Node Version: `, node, true)
+            embed.addField(`Memory Usage: `, memoryusage, true)
+            embed.addField(`CPU Usage: `, `${cpu}%`, true)
+            embed.addField(`CPU Model: `, cpuModel)
+            embed.addField(`Cores: `, `${cores}`)
+            embed.addField(`Bot file: `, `${botLines} lines (${botSize}KB)`, true)
+            embed.addField(`Module files: `, `${moduleLines} lines (${moduleSize}KB)`, true)
+            embed.addField(`Command files: `, `${commandLines} lines (${commandSize}KB)`, true);
 
         message.channel.send({ embeds: [embed] });
     });
@@ -91,6 +91,7 @@ module.exports.info = {
     "aliases": [`binfo`],
     "usage": "botinfo",
     "category": "information",
+    "guildonly": false,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }

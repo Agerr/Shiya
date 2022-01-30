@@ -28,6 +28,7 @@ module.exports.info = {
     "usage": "userinfo [mention | id | name | tag]",
     "aliases": [`uinfo`],
     "category": "information",
+    "guildonly": true,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }
