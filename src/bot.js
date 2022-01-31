@@ -68,7 +68,7 @@ bot.on(`messageCreate`, async message => {
         success = false;
     }
 
-    if(success) console.log(`\x1b[32m${message.author.tag} (${message.author.id}) ran ${config.prefix}${command}\x1b[39m`);
+    if(success) console.log(`\x1b[32m${message.author.tag} (${message.author.id}) ran ${config.prefix}${cmd.info.name}\x1b[39m`);
     else console.log(`\x1b[31m${message.author.tag} (${message.author.id}) ran ${config.prefix}${command}\x1b[39m\n\tError encountered: ${errorEncountered}`);
 });
 

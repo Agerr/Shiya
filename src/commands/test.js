@@ -1,7 +1,7 @@
 const timeConvert = require(`../modules/timeConvert.js`);
 
 module.exports.run = async (bot, message, args) => {
-    if (args[1]) { message.channel.send({ content: `${await timeConvert(args[1])}` }); } else { message.channel.send({ content: `Please provide amount.` }); }
+    if (args[1]) { message.channel.send({ content: `${await timeConvert(args[1])} seconds` }); } else { message.channel.send({ content: `Please provide amount.` }); }
 }
 
 module.exports.info = {
