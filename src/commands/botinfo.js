@@ -70,7 +70,7 @@ module.exports.run = (bot, message, args) => {
             .addField(`Added To Server: `, `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`)
             .addField(`Servers: `, `${bot.guilds.cache.size}`)
             .addField(`Serving Users: `, `${bot.users.cache.size}`, true)
-            .addField(`Serving Channels: `, `${bot.channels.cache.size}`, true)
+            .addField(`Serving Channels: `, `${bot.channels.cache.filter(channel => channel.type != 'GUILD_CATEGORY').size}`, true)
             .addField(`UpTime: `, `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`)
             .addField(`Node Version: `, node, true)
             .addField(`Memory Usage: `, memoryusage, true)
@@ -91,5 +91,6 @@ module.exports.info = {
     "aliases": [`binfo`],
     "usage": "botinfo",
     "category": "information",
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }

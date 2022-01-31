@@ -2,7 +2,8 @@ const Discord = require(`discord.js`),
       bot = new Discord.Client({ intents: 4611, partials: [`CHANNEL`]}),
       fs = require(`fs`),
       config = require(`./config.json`),
-      dbHandler = require(`./modules/dbHandler.js`);
+      dbHandler = require(`./modules/dbHandler.js`),
+      botPerms = require(`./modules/botPerms.js`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
@@ -48,6 +49,8 @@ bot.on(`messageCreate`, async message => {
     if(!bot.commands.has(command)) return;
 
     const cmd = bot.commands.get(command);
+
+    if (await botPerms(message, cmd.info) === false) return; 
 
     if(cmd.info.perm == `dev` && !config.dev.includes(message.author.id)) return;
 

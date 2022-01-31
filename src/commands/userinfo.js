@@ -3,7 +3,9 @@ const Discord = require(`discord.js`),
       config = require(`../config.json`);
 
 module.exports.run = async (bot, message, args) => {
-    const target = await fetchMember(message);
+    if (!args[1]) return message.channel.send({ content: `Couldn't find this member.` });
+
+    const target = await fetchMember(message, args[1]);
 
     if (target === false) return;
 
@@ -26,5 +28,6 @@ module.exports.info = {
     "usage": "userinfo [mention | id | name | tag]",
     "aliases": [`uinfo`],
     "category": "information",
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }
