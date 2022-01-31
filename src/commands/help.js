@@ -99,6 +99,7 @@ module.exports.info = {
     "usage": "help <command>",
     "aliases": [],
     "category": "information",
+    "guildonly": false,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }

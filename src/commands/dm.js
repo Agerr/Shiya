@@ -23,6 +23,7 @@ module.exports.info = {
     "usage": "dm [mention | id | name | tag]",
     "aliases": [`send`],
     "category": "developer",
+    "guildonly": true,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "dev"
 }

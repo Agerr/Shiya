@@ -24,6 +24,7 @@ module.exports.info = {
     "usage": "avatar [mention | id | name | tag]",
     "aliases": [`av`],
     "category": "information",
+    "guildonly": true,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }
