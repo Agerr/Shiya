@@ -1,7 +1,9 @@
 const Discord = require(`discord.js`),
       config = require(`../config.json`),
-      terminal = require('child_process'),
+      terminal = require(`child_process`),
       bin = require(`../modules/bin.js`);
+
+let path = `~`;
 
 module.exports.run = async (bot, message, args) => {
     const code = message.content.substr(config.prefix.length + args[0].length + 1);
@@ -17,8 +19,14 @@ module.exports.run = async (bot, message, args) => {
             await embed.addField(`Code:`, `\`\`\`\n${code}\`\`\``);
         }
 
-    child = terminal.exec(`cd ~\n` + code,
+    child = terminal.exec(`cd ${path}\n` + code + `\npwd`,
         async function (error, stdout, stderr) {
+
+            path = stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1).length - 1);
+            stdout = stdout.substr(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1));
+
+            embed.setFooter({ text: `Pwd: ${path}` })
+
             if(stdout!== `` && stderr == ``) {
                 if (stdout.length > 1000) {
                     output = await bin(stdout);
@@ -45,7 +53,7 @@ module.exports.info = {
     "name": "terminal",
     "description": "Executes code in terminal",
     "usage": "terminal",
-    "aliases": ['term'],
+    "aliases": [`term`],
     "category": "developer",
     "guildonly": false,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
