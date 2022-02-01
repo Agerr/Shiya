@@ -10,6 +10,11 @@ module.exports.run = async (bot, message, args) => {
 
     if (code == ``) return message.channel.send({ content: `Please provide command` });
 
+    if (code == `RESET`) {
+        path2 = `~`;
+        return message.channel.send({ content: `Terminal reset` });
+    }
+
     embed = new Discord.MessageEmbed()
         .setColor(config.color)
         .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
@@ -33,10 +38,10 @@ module.exports.run = async (bot, message, args) => {
                 } else {
                     await embed.addField(`Output:`, `\`\`\`\n${stdout}\`\`\``);
                 }
-                embed.setFooter({ text: `Pwd: ${path}` })
+                embed.setFooter({ text: `Path: ${path}` })
             } else if (stderr == ``) {
                 await embed.addField(`Output:`, `\`\`\`\nDone\`\`\``);
-                embed.setFooter({ text: `Pwd: ${path}` })
+                embed.setFooter({ text: `Path: ${path}` })
             }
             if(stderr!== ``) {
                 if (stderr.length > 1000) {
