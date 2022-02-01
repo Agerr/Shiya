@@ -30,7 +30,12 @@ module.exports.run = async (bot, message, args) => {
                 await embed.addField(`Output:`, `\`\`\`\nDone\`\`\``);
             }
             if(stderr!== ``) {
-                await embed.addField(`Error:`, `\`\`\`\n${stderr}\`\`\``);
+                if (stderr.length > 1000) {
+                    output = await bin(stderr);
+                    await embed.addField(`Error:`, `\`\`\`\n${output}\`\`\``);
+                } else {
+                    await embed.addField(`Error:`, `\`\`\`\n${stderr}\`\`\``);
+                }
             }
             await message.channel.send({ embeds: [embed] }).catch((error) => { message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``); });
         });
