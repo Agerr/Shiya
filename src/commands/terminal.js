@@ -3,7 +3,7 @@ const Discord = require(`discord.js`),
       terminal = require(`child_process`),
       bin = require(`../modules/bin.js`);
 
-let path = `~`;
+let path2 = `~`;
 
 module.exports.run = async (bot, message, args) => {
     const code = message.content.substr(config.prefix.length + args[0].length + 1);
@@ -19,13 +19,12 @@ module.exports.run = async (bot, message, args) => {
             await embed.addField(`Code:`, `\`\`\`\n${code}\`\`\``);
         }
 
-    child = terminal.exec(`cd ${path}\n` + code + `\npwd`,
+    child = terminal.exec(`cd ${path2}\n` + code + `\npwd`,
         async function (error, stdout, stderr) {
 
             path = stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1).length - 1);
+            path2 = path.replaceAll(`/`, `'/'`).substr(1) + `'`;
             stdout = stdout.substr(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1));
-
-            embed.setFooter({ text: `Pwd: ${path}` })
 
             if(stdout!== `` && stderr == ``) {
                 if (stdout.length > 1000) {
@@ -34,8 +33,10 @@ module.exports.run = async (bot, message, args) => {
                 } else {
                     await embed.addField(`Output:`, `\`\`\`\n${stdout}\`\`\``);
                 }
+                embed.setFooter({ text: `Pwd: ${path}` })
             } else if (stderr == ``) {
                 await embed.addField(`Output:`, `\`\`\`\nDone\`\`\``);
+                embed.setFooter({ text: `Pwd: ${path}` })
             }
             if(stderr!== ``) {
                 if (stderr.length > 1000) {
