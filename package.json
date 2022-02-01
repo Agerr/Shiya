@@ -21,6 +21,7 @@
   "dependencies": {
     "cpu-stat": "^2.0.1",
     "discord.js": "^13.5.1",
-    "os": "^0.1.2"
+    "os": "^0.1.2",
+    "sourcebin": "^4.3.5"
   }
 }

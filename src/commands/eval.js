@@ -41,7 +41,7 @@ module.exports.info = {
     "name": "eval",
     "description": "Evaluates expressions",
     "usage": "eval [expression]",
-    "aliases": [`run`],
+    "aliases": [],
     "category": "developer",
     "guildonly": false,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
