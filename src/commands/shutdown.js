@@ -13,7 +13,6 @@ module.exports.info = {
     "usage": "shutdown",
     "aliases": [`kill`],
     "category": "developer",
-    "guildonly": false,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "dev"
 }

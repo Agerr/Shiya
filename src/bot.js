@@ -35,7 +35,8 @@ bot.on(`ready`, () => {
 });
 
 bot.on(`messageCreate`, async message => {
-    if(message.guild === null && !message.author.bot && !message.content.startsWith(config.prefix)) {
+    if(message.author.bot) return;
+    if(message.guild === null && !message.content.startsWith(config.prefix)) {
         embed = new Discord.MessageEmbed()
             .setAuthor({ name: `${message.author.tag} (${message.author.id})`, iconURL: message.author.displayAvatarURL() })
             .setDescription(`${message.content.length <= 1900 ? message.content : message.content.substr(0, 1900)}`)
@@ -44,8 +45,7 @@ bot.on(`messageCreate`, async message => {
 
         bot.channels.cache.get(config.dmChannelId).send({ embeds: [embed] }); 
     }
-  
-    if(!message.content.startsWith(config.prefix) || message.author.bot) return;
+    if(!message.content.startsWith(config.prefix)) return;
 
     const args = message.content.substring(config.prefix.length).split(` `),
           command = args[0].toLowerCase();
@@ -54,10 +54,8 @@ bot.on(`messageCreate`, async message => {
 
     const cmd = bot.commands.get(command);
 
-    if (message.guild === null && cmd.info.guildonly === true) return message.channel.send({ content: `This command is guild only.` }).catch((error) => {});
-
-    if (message.guild != null) if (await botPerms(message, cmd.info) === false) return; 
-
+    if(message.guild === null && cmd.info.perm == `guild`) return message.channel.send({ content: `This command is guild only.` }).catch((error) => {});
+    if(message.guild != null) if(await botPerms(message, cmd.info) === false) return; 
     if(cmd.info.perm == `dev` && !config.dev.includes(message.author.id)) return;
 
     let success,
@@ -73,7 +71,7 @@ bot.on(`messageCreate`, async message => {
     }
 
     if(success) console.log(`\x1b[32m${message.author.tag} (${message.author.id}) ran ${config.prefix}${cmd.info.name}\x1b[39m`);
-    else console.log(`\x1b[31m${message.author.tag} (${message.author.id}) ran ${config.prefix}${command}\x1b[39m\n\tError encountered: ${errorEncountered}`);
+    else console.log(`\x1b[31m${message.author.tag} (${message.author.id}) ran ${config.prefix}${cmd.info.name}\x1b[39m\n\tError encountered: ${errorEncountered}`);
 });
 
 bot.login(config.token);
