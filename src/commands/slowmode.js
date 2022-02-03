@@ -14,5 +14,7 @@ module.exports.info = {
     "usage": "slowmode [amount]",
     "aliases": [`sm`],
     "category": "moderation",
+    "guildonly": false,
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }
