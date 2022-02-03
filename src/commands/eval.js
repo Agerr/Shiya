@@ -26,13 +26,13 @@ module.exports.run = async (bot, message, args) => {
         result = error;
     }
 
-    if(result == "") result = "<empty response>"
+    if(result == ``) result = `<empty response>`;
     
     const embed = new Discord.MessageEmbed()
-            .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
-            .setColor(config.color)
-            .addField(`Expression:`, `\`\`\`js\n${expression}\`\`\``)
-            .addField(`Result:`, `\`\`\`js\n${result}\`\`\``);
+        .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
+        .setColor(config.color)
+        .addField(`Expression:`, `\`\`\`js\n${expression}\`\`\``)
+        .addField(`Result:`, `\`\`\`js\n${result}\`\`\``);
         
     await message.channel.send({ embeds: [embed] });
 }
@@ -43,7 +43,6 @@ module.exports.info = {
     "usage": "eval [expression]",
     "aliases": [`run`],
     "category": "developer",
-    "guildonly": false,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "dev"
 }

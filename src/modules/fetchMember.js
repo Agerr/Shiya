@@ -5,18 +5,18 @@ module.exports = async (message, memberInfo) => {
     let target;
 
     try {
-        if (message.mentions.users.first()) {
+        if(message.mentions.users.first()) {
             target = await message.guild.members.fetch(await message.mentions.users.first().id);
-        } else if (/^(0|([1-9]\d*))$/.test(memberInfo)) {
+        } else if(/^(0|([1-9]\d*))$/.test(memberInfo)) {
             target = await message.guild.members.fetch(memberInfo);
         } else {
             target = await message.guild.members.cache.find(member => member.user.tag.toLowerCase() == memberInfo.toLowerCase())
-            if (target == undefined) {
+            if(target == undefined) {
                 let membersArray = Array.from(await message.guild.members.cache.filter(member => member.user.username.toLowerCase().startsWith(memberInfo.toLowerCase())).values());
 
-                if (membersArray.length == 1) {
+                if(membersArray.length == 1) {
                     target = await message.guild.members.fetch((membersArray[0].user.id));
-                } else if (membersArray.length > 1){
+                } else if(membersArray.length > 1){
                     let usersList = ``;
                     membersArray.forEach(element => {
                         usersList += `${element.user.tag}\n`;
@@ -38,7 +38,7 @@ module.exports = async (message, memberInfo) => {
         console.log(`Error encountered: ${error}`);
     }
 
-    if (target == undefined) { 
+    if(target == undefined) { 
         target = false;
         message.channel.send({ content: `Couldn't find this member.` });
     }

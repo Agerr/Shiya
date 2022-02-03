@@ -5,10 +5,10 @@ module.exports = async (message, info) => {
     let hasPerms = true;
 
     await info.botperms.forEach(perm => {
-        if (!message.guild.me.permissionsIn(message.channel).has(perm)) hasPerms = false;
+        if(!message.guild.me.permissionsIn(message.channel).has(perm)) hasPerms = false;
     });
 
-    if (!hasPerms){
+    if(!hasPerms){
         const yesEmote = `✅`;
         const noEmote = `⛔`;
 
