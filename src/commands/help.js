@@ -55,9 +55,9 @@ fs.readdir(`./commands/`, (error, files) => {
 });
 
 module.exports.run = (bot, message, args) => {
-    if (args[1]) {
+    if(args[1]) {
 
-        if (!bot.commands.has(args[1].toLowerCase())) return message.channel.send({ content: `Command \`${args[1].toLowerCase()}\` doesn't exist.` })
+        if(!bot.commands.has(args[1].toLowerCase())) return message.channel.send({ content: `Command \`${args[1].toLowerCase()}\` doesn't exist.` })
 
         const cmd = bot.commands.get(args[1].toLowerCase());
 
@@ -87,7 +87,7 @@ module.exports.run = (bot, message, args) => {
                 { name: `Utility`, value: `${commands.utility}` },
             );
 
-        if (config.dev.includes(message.author.id)) { helpEmbed.addField(`Developer`, `${commands.developer}`, true); }
+        if(config.dev.includes(message.author.id)) { helpEmbed.addField(`Developer`, `${commands.developer}`, true); }
 
          message.channel.send({ embeds: [helpEmbed] });   
     }
@@ -99,5 +99,6 @@ module.exports.info = {
     "usage": "help <command>",
     "aliases": [],
     "category": "information",
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }
