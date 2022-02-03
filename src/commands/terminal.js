@@ -21,12 +21,12 @@ module.exports.run = async (bot, message, args) => {
             .setColor(config.color)
             .setAuthor({ name: bot.user.username, iconURL: bot.user.displayAvatarURL() })
             if (code.length > 1000) {
-                await embed.addField(`Code:`, `${await bin(code)}`);
+                await embed.addField(`Code:`, `${await bin(message, code)}`);
             } else {
                 await embed.addField(`Code:`, `\`\`\`\n${code}\`\`\``);
             }
         
-        let { stdout, stderr } = await exec(`cd ${path2}\n` + code + `\necho\npwd`);
+        let { stdout, stderr } = await exec(`cd ${path2}\n` + code + `\necho\npwd`, {maxBuffer: 1024 * 500000});
 
         path = stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1).length - 1);
         path2 = path.replaceAll(`/`, `'/'`).substr(1) + `'`;
@@ -34,7 +34,9 @@ module.exports.run = async (bot, message, args) => {
 
         if(stdout!== `` && stderr == ``) {
             if (stdout.length > 1000) {
-                output = await bin(stdout);
+                let output = await bin(message, stdout);
+                if (output === false) return;
+
                 await embed.addField(`Output:`, `${output}`);
             } else {
                 await embed.addField(`Output:`, `\`\`\`\n${stdout}\`\`\``);
@@ -46,7 +48,9 @@ module.exports.run = async (bot, message, args) => {
         }
         if(stderr!== ``) {
             if (stderr.length > 1000) {
-                output = await bin(stderr);
+                let output = await bin(message, stderr);
+                if (output === false) return;
+
                 await embed.addField(`Error:`, `\`\`\`\n${output}\`\`\``);
             } else {
                 await embed.addField(`Error:`, `\`\`\`\n${stderr}\`\`\``);
