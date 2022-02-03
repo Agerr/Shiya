@@ -34,10 +34,7 @@ module.exports.run = async (bot, message, args) => {
 
         if(stdout!== `` && stderr == ``) {
             if (stdout.length > 1000) {
-                let output = await bin(message, stdout);
-                if (output === false) return;
-
-                await embed.addField(`Output:`, `${output}`);
+                await embed.addField(`Output:`, `${await bin(message, stdout)}`);
             } else {
                 await embed.addField(`Output:`, `\`\`\`\n${stdout}\`\`\``);
             }
@@ -48,10 +45,7 @@ module.exports.run = async (bot, message, args) => {
         }
         if(stderr!== ``) {
             if (stderr.length > 1000) {
-                let output = await bin(message, stderr);
-                if (output === false) return;
-
-                await embed.addField(`Error:`, `\`\`\`\n${output}\`\`\``);
+                await embed.addField(`Error:`, `\`\`\`\n${await bin(message, stderr)}\`\`\``);
             } else {
                 await embed.addField(`Error:`, `\`\`\`\n${stderr}\`\`\``);
             }

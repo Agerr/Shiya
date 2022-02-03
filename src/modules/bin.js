@@ -2,10 +2,10 @@ const Discord = require(`discord.js`),
       { create } = require(`sourcebin`);
 
 module.exports = async (message, input) => {
-    try{
-        let sources = ``;
+    let sources = ``;
 
-        input = await input.match(/.{1,100000}/g);
+    try {
+        input = await input.match(/[\s\S]{1,50000}/g);
 
         for (let i = input.length; i > 0; i--) {
             let content = `${input[input.length - i]}`;
@@ -20,9 +20,9 @@ module.exports = async (message, input) => {
                 sources += `${input.length - i}: ${value.url} (Chars: ${input[input.length - i].length})\n`;
             })
         }
-    return sources;
+
+        return sources;
     } catch (error) {
-        message.channel.send(`I encountered an error using sourcebin!\n\nThe error was: \`\`\`${error}\`\`\``);
-        return false;
+        return `${sources}\n \`\`\`${error}\`\`\``;
     }
 }
