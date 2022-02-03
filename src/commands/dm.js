@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     let success = true;
     await target.user.send({ content: `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` }).catch((error) => {
         success = false;
-        return await message.channel.send({ content: `Message couldn't be send.` });
+        return message.channel.send({ content: `Message couldn't be send.` });
     });
     if(!success) return;
 
