@@ -25,6 +25,10 @@ fs.readdir(`./commands/`, (error, files) => {
 });
 
 bot.on(`ready`, () => {
+    bot.guilds.cache.forEach(guild => {
+        guild.members.fetch();
+    });
+
     console.log(`\nLogged in as ${bot.user.tag}!\n`);
 
     bot.user.setActivity(`${config.prefix}help`, { type: `LISTENING` });
