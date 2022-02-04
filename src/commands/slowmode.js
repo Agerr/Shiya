@@ -19,5 +19,5 @@ module.exports.info = {
     "aliases": [`sm`],
     "category": "moderation",
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
-    "perm": "public"
+    "perm": "guild"
 }
