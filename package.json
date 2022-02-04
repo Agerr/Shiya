@@ -1,5 +1,5 @@
 {
-  "name": "botty",
+  "name": "shiya",
   "version": "1.0.0",
   "description": "",
   "main": "src/bot.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Agerr/Botty.git"
+    "url": "git+https://github.com/Agerr/Shiya.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Agerr/Botty/issues"
+    "url": "https://github.com/Agerr/Shiya/issues"
   },
-  "homepage": "https://github.com/Agerr/Botty#readme",
+  "homepage": "https://github.com/Agerr/Shiya#readme",
   "dependencies": {
     "cpu-stat": "^2.0.1",
     "discord.js": "^13.5.1",
