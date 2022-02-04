@@ -62,7 +62,6 @@ module.exports.info = {
     "usage": "terminal",
     "aliases": [`term`],
     "category": "developer",
-    "guildonly": false,
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "dev"
 }
