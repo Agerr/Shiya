@@ -28,9 +28,9 @@ module.exports.run = async (bot, message, args) => {
         
         let { stdout, stderr } = await exec(`cd ${path2}\n` + code + `\necho\npwd`, {maxBuffer: 1024 * 500000});
 
-        path = stdout.substring(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.substring(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1).length);
-        path2 = path.replaceAll(`/`, `'/'`).substring(1) + `'`;
-        stdout = stdout.substring(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)));
+        path = stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1).length - 1);
+        path2 = path.replaceAll(`/`, `'/'`).substr(1) + `'`;
+        stdout = stdout.substr(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1));
 
         if(stdout!== `` && stderr == ``) {
             if (stdout.length > 1000) {
