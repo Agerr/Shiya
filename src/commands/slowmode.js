@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if(parseInt(seconds) > 21600) return message.channel.send({ content: `Value should be less or equal to 21600.` });
 
     await message.channel.setRateLimitPerUser(parseInt(seconds));
-    await message.channel.send({ content: `Slowmode has been set to ${seconds} seconds.` });
+    await message.channel.send({ content: `Slowmode set to ${parseInt(seconds) / 3600 >= 1 ? Math.round(parseInt(seconds) / 3600 * 100) / 100 + ` hours.` : parseInt(seconds) / 60 >= 1 ? Math.round(parseInt(seconds) / 60 * 100) / 100 + ` minutes.` : seconds + ` seconds.`}` });
 }
 
 module.exports.info = {

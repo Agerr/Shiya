@@ -17,7 +17,7 @@ function setStatus(bot, type, str) { bot.user.setActivity(str, { type: type }); 
 module.exports.run = async (bot, message, args) => {
     const m = msg = message;
 
-    const expression = message.content.substr(config.prefix.length + args[0].length + 1);
+    const expression = message.content.substring(config.prefix.length + args[0].length + 1);
     let result;
 
     try {

@@ -1,5 +1,5 @@
 const Discord = require(`discord.js`),
-      bot = new Discord.Client({ intents: 4611, partials: [`CHANNEL`]}),
+      bot = new Discord.Client({ intents: 4867, partials: [`CHANNEL`]}),
       fs = require(`fs`),
       config = require(`./config.json`),
       dbHandler = require(`./modules/dbHandler.js`),
@@ -39,7 +39,7 @@ bot.on(`messageCreate`, async message => {
     if(message.guild === null && !message.content.startsWith(config.prefix)) {
         embed = new Discord.MessageEmbed()
             .setAuthor({ name: `${message.author.tag} (${message.author.id})`, iconURL: message.author.displayAvatarURL() })
-            .setDescription(`${message.content.length <= 1900 ? message.content : message.content.substr(0, 1900)}`)
+            .setDescription(`${message.content.length <= 1900 ? message.content : message.content.substring(0, 1901)}`)
             .setFooter({ text: `Message length: ${message.content.length <= 1900 ? message.content.length : `too long (first 1900 chars)`}` })
             .setColor(config.color);
 
