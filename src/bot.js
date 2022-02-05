@@ -39,7 +39,7 @@ bot.on(`messageCreate`, async message => {
     if(message.guild === null && !message.content.startsWith(config.prefix)) {
         embed = new Discord.MessageEmbed()
             .setAuthor({ name: `${message.author.tag} (${message.author.id})`, iconURL: message.author.displayAvatarURL() })
-            .setDescription(`${message.content.length <= 1900 ? message.content : message.content.substring(0, 1901)}`)
+            .setDescription(`${message.content.length <= 1900 ? message.content : message.content.substring(0, 1900)}`)
             .setFooter({ text: `Message length: ${message.content.length <= 1900 ? message.content.length : `too long (first 1900 chars)`}` })
             .setColor(config.color);
 
