@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 
         path = stdout.substring(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.length - 1);
         path2 = path.replaceAll(`/`, `'/'`).substring(1) + `'`;
-        stdout = stdout.substring(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1);
+        stdout = stdout.substring(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1));
         
         if(stdout!== `` && stderr == ``) {
             if (stdout.length > 1000) {
