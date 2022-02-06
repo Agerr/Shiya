@@ -83,7 +83,7 @@ module.exports.run = (bot, message, args) => {
                 { name: `Games`, value: `${commands.games}` },
                 { name: `Images`, value: `${commands.images}` },
                 { name: `Fun`, value: `${commands.fun}` },
-                { name: `Random`, value:  `${commands.fun}`},
+                { name: `Random`, value:  `${commands.random}`},
                 { name: `Utility`, value: `${commands.utility}` },
             );
 
