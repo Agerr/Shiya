@@ -13,11 +13,6 @@ module.exports = async (message, info) => {
         const noEmote = `⛔`;
 
         let permsOutput = `
-            Server - 📛
-            Current channel - ♨️
-
-            📛 | ♨️
-
         `;
 
         info.botperms.forEach(perm =>{
@@ -25,10 +20,10 @@ module.exports = async (message, info) => {
         });
 
         const permissionsEmbed = new Discord.MessageEmbed()
-            .setTitle(`Oh no... I lack permissions...`)
+            .setTitle(`I lack permissions :'c`)
             .setColor(config.color)
             .setDescription(permsOutput)
-            .setFooter({ text: `Please enable these permissions` })
+            .setFooter({ text: `Please get me everything above :c` })
 
         await (message.guild.me.permissionsIn(message.channel).has(`VIEW_CHANNEL`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES_IN_THREADS`)) ? await message.channel.send({ embeds: [permissionsEmbed] }).catch((error) => {}) : await message.author.send({ embeds: [permissionsEmbed] }).catch((error) => {});
 
