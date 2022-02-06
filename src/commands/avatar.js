@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.info = {
     "name": "avatar",
-    "description": "Sends user's avatar",
+    "description": "Sends someone's avatar! c:<",
     "usage": "avatar [mention | id | name | tag]",
     "aliases": [`av`],
     "category": "information",

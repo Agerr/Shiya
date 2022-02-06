@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.info = {
     "name": "userinfo",
-    "description": "Sends information about user",
+    "description": "Tells you about someone?? 👀",
     "usage": "userinfo [mention | id | name | tag]",
     "aliases": [`uinfo`],
     "category": "information",

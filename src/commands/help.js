@@ -95,7 +95,7 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.info = {
     "name": "help",
-    "description": "Sends help infomation about bot's commands",
+    "description": "Tells you what you can do with me!!",
     "usage": "help <command>",
     "aliases": [],
     "category": "information",

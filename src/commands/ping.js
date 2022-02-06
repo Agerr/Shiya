@@ -6,7 +6,7 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.info = {
     "name": "ping",
-    "description": "Sends bot's and api's latency",
+    "description": "Informs you on my performance, sir/ma'am!",
     "usage": "ping",
     "aliases": [],
     "category": "information",

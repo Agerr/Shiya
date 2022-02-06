@@ -42,7 +42,7 @@ function wordsUpperCase(str) {
 
 module.exports.info = {
     "name": "perms",
-    "description": "Sends users permissions",
+    "description": "Shows you what you can do on this server 👀",
     "usage": "perms [mention | id | name | tag]",
     "aliases": [],
     "category": "information",

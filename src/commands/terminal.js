@@ -58,8 +58,8 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.info = {
     "name": "terminal",
-    "description": "Executes code in terminal",
-    "usage": "terminal",
+    "description": "Executes bash code!! 👀",
+    "usage": "terminal [command]",
     "aliases": [`term`],
     "category": "developer",
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],

@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.info = {
     "name": "clear",
-    "description": "Bulk deletes up to 99 messages",
+    "description": "Deletes up to 99 messages?? :o",
     "usage": "clear [amount]",
     "aliases": [`purge`],
     "category": "moderation",
