@@ -34,7 +34,7 @@ module.exports.info = {
     "description": "Reminds you something after specified amount of time",
     "usage": "remind [amount] <text>",
     "aliases": [],
-    "category": "random",
+    "category": "utility",
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }
