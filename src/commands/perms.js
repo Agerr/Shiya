@@ -12,7 +12,7 @@ const permissions = [`CREATE_INSTANT_INVITE`, `KICK_MEMBERS`, `BAN_MEMBERS`, `MO
 let permsOutput = `\`\`\`\nServer - 📛\nCurrent channel - ♨️\n\n📛 | ♨️\n`;
 
 module.exports.run = async (bot, message, args) => {
-    if(!args[1]) return message.channel.send({ content: `Couldn't find this member.` });
+    if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
 
     const target = await fetchMember(message, args[1]);
 
@@ -33,11 +33,11 @@ module.exports.run = async (bot, message, args) => {
 }
 
 function wordsUpperCase(str) {
-    var splitStr = str.toLowerCase().split('_');
+    var splitStr = str.toLowerCase().split(`_`);
     for (var i = 0; i < splitStr.length; i++) {
         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
     }
-    return splitStr.join(' '); 
+    return splitStr.join(` `); 
 }
 
 module.exports.info = {

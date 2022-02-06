@@ -66,7 +66,7 @@ bot.on(`messageCreate`, async message => {
         success = true;
     } catch(error) {
         errorEncountered = error;
-        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
+        message.channel.send(`I encountered an error doing that!!! \n\nThe error was: \`\`\`${error}\`\`\``);
         success = false;
     }
 

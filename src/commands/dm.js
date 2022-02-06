@@ -7,22 +7,22 @@ module.exports.run = async (bot, message, args) => {
 
     let user = await bot.users.fetch(args[1]).catch(error => {
         success = false;
-        message.channel.send({ content: `Error while fetching user.\`\`\`${error}\`\`\`` });
+        message.channel.send({ content: `Error!!! <${config.emojis.pandascared}>\`\`\`${error}\`\`\`` });
     })
     
     if(!success) return;
 
-    if(!user)  return message.channel.send({ content: `Couldn't fetch this user.` });
+    if(!user) return message.channel.send({ content: `Couldn't get this user :c.` });
 
-    if(!args[2]) return message.channel.send({ content: `You didn't input the message.` });
+    if(!args[2]) return message.channel.send({ content: `You didn't give me a messageeeeeeeeee` });
 
     await user.send({ content: `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` }).catch((error) => {
         success = false;
-        return message.channel.send({ content: `Message couldn't be send.` });
+        return message.channel.send({ content: `Message couldn't be sent :c` });
     });
     if(!success) return;
 
-    await message.channel.send({ content: `Message sent to ${user.tag} (${user.id}) \`\`\`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}\`\`\`` })
+    await message.channel.send({ content: `Message sent to ${user.tag}!!! *(${user.id})* \`\`\`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}\`\`\`` })
 }
 
 module.exports.info = {

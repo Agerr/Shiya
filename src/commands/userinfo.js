@@ -3,7 +3,7 @@ const Discord = require(`discord.js`),
       config = require(`../config.json`);
 
 module.exports.run = async (bot, message, args) => {
-    if(!args[1]) return message.channel.send({ content: `Couldn't find this member.` });
+    if(!args[1]) return message.channel.send({ content: `Couldn't find them :c` });
 
     const target = await fetchMember(message, args[1]);
 
@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .addFields(
             { name: `ID`, value: `${target.user.id}` },
             { name: `Member Since`, value: `<t:${parseInt(target.joinedTimestamp / 1000)}:R>` },
-            { name: `Discord User Since`, value: `<t:${parseInt(target.user.createdTimestamp / 1000)}:R>` }
+            { name: `On Discord Since`, value: `<t:${parseInt(target.user.createdTimestamp / 1000)}:R>` }
         );
 
     message.channel.send({ embeds: [embed] });

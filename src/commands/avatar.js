@@ -3,7 +3,7 @@ const Discord = require(`discord.js`),
       config = require(`../config.json`);
 
 module.exports.run = async (bot, message, args) => {
-    if(!args[1]) return message.channel.send({ content: `Couldn't find this member.` });
+    if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
 
     const target = await fetchMember(message, args[1]);
 
