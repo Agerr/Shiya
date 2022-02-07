@@ -5,6 +5,7 @@ const Discord = require(`discord.js`),
       reminders = new Set();
 
 module.exports.run = async (bot, message, args) => {
+    if (!args[1]) return message.channel.send({ content: `Unspecified length.` });
     const seconds = await timeConvert(args[1]);
 
     if(seconds === false) return message.channel.send({ content: `Invalid amount.` });
