@@ -8,8 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!args[1]) return message.channel.send({ content: `Provide user information.` });
 
-    if(message.guild != null) 
-    { 
+    if(message.guild != null) { 
         targetUser = await fetchMember(message, args[1]).user;
     } else {
         targetUser = await bot.users.fetch(args[1]).catch(error => {

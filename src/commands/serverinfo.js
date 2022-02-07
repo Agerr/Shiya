@@ -2,6 +2,10 @@ const Discord = require(`discord.js`),
       config = require(`../config.json`);
 
 module.exports.run = (bot, message, args) => {
+  const online = message.guild.members.cache.filter(member => member.presence?.status == `online`).size,
+        idle = message.guild.members.cache.filter(member => member.presence?.status == `idle`).size,
+        dnd = message.guild.members.cache.filter(member => member.presence?.status == `dnd`).size;
+
     const embed = new Discord.MessageEmbed()
       .setColor(config.color)
       .setTitle(`Server Info`)
@@ -15,8 +19,8 @@ module.exports.run = (bot, message, args) => {
       .addField(`Member Count: `, `All: ${message.guild.members.cache.size}\nPeople: ${message.guild.members.cache.filter(member => !member.user.bot).size}\nBots: ${message.guild.members.cache.filter(member => member.user.bot).size}`, true)
       .addField(`Emojis: `, `All: ${message.guild.emojis.cache.size}\nRegular: ${message.guild.emojis.cache.filter(emoji => !emoji.animated).size}\nAnimated: ${message.guild.emojis.cache.filter(emoji => emoji.animated).size}`, true)
       .addField(`Roles: `, `${message.guild.roles.cache.map(e => e.toString()).length <= 1000 ? message.guild.roles.cache.map(e => e.toString()) : message.guild.roles.cache.size}`)
-      .addField(`Member Stats: `, `${config.emojis.StatusOnline}: ${message.guild.members.cache.filter(member => member.presence?.status == `online`).size}\n${config.emojis.StatusIdle}: ${message.guild.members.cache.filter(member => member.presence?.status == `idle`).size}\n${config.emojis.StatusDnd}: ${message.guild.members.cache.filter(member => member.presence?.status == `dnd`).size}\n${config.emojis.StatusOffline}: ${parseInt(message.guild.memberCount - message.guild.members.cache.filter(member => member.presence?.status == `online`).size) - parseInt(message.guild.members.cache.filter(member => member.presence?.status == `idle`).size) - parseInt(message.guild.members.cache.filter(member => member.presence?.status == `dnd`).size)}`, true)
-      .addField(`Server Stats: `, `${config.emojis.TextChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_TEXT`).size}\n${config.emojis.VoiceChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_VOICE`).size}\n${config.emojis.NewsChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_NEWS`).size}\n${config.emojis.CategoryChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_CATEGORY`).size}`, true);
+      .addField(`Member Stats: `, `${config.emojis.statusOnline}: ${online}\n${config.emojis.statusIdle}: ${idle}\n${config.emojis.statusDnd}: ${dnd}\n${config.emojis.statusOffline}: ${message.guild.memberCount - online - idle - dnd}`, true)
+      .addField(`Server Stats: `, `${config.emojis.textChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_TEXT`).size}\n${config.emojis.voiceChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_VOICE`).size}\n${config.emojis.newsChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_NEWS`).size}\n${config.emojis.categoryChannel}: ${message.guild.channels.cache.filter(channel => channel.type == `GUILD_CATEGORY`).size}`, true);
     
     message.channel.send({ embeds: [embed] });
 }

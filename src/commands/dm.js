@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!success) return message.channel.send({ content: `Couldn't get this user.` });
 
-    if(!args[2]) return message.channel.send({ content: `You didn't provide the message.` });
+    if(!args[2]) return message.channel.send({ content: `You didn't provide a message.` });
 
     if(message.content.substring(config.prefix.length + args[0].length + args[1].length + 2).length > 1000) return message.channel.send(`Text can't be longer than 1000 characters.`);
 
@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         success = false;
     });
     
-    if(!success) return message.channel.send({ content: `Message couldn't be send.` });
+    if(!success) return message.channel.send({ content: `Message couldn't be sent.` });
 
     await message.channel.send({ content: `Message sent to ${user.tag} (id: ${user.id}):\`\`\`` + `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` + `\`\`\``})
 }
