@@ -15,14 +15,14 @@ module.exports.run = async (bot, message, args) => {
     }
     
     reminders.add(message.author.id);
-    message.reply({ content: `Reminder set for ${parseInt(seconds) / 3600 >= 1 ? Math.round(parseInt(seconds) / 3600 * 100) / 100 + ` hours.` : parseInt(seconds) / 60 >= 1 ? Math.round(parseInt(seconds) / 60 * 100) / 100 + ` minutes.` : seconds + ` seconds.`}`});
+    message.reply({ content: `Reminder set for ${timeStringify(seconds)}.`});
     setTimeout(() => {
         reminders.delete(message.author.id);
 
         const remindEmbed = new Discord.MessageEmbed()
             .setColor(config.color)
             .setTitle(`Reminder`)
-            .setDescription((`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2).length > 0 ? `\`\`\`` + message.content.substring(config.prefix.length + args[0].length + args[1].length + 2) + `\`\`\`` : ``}`).substring(0, 1000))
+            .setDescription(`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2).length > 0 ? `\`\`\`` + message.content.substring(config.prefix.length + args[0].length + args[1].length + 2) + `\`\`\`` : ``}`)
             .addField(`Reminder Created`, `<t:${parseInt(message.createdTimestamp / 1000)}:R>`)
             .addField(`Reminded After`, `${timeStringify(seconds)}.`);
 
