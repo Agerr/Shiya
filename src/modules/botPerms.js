@@ -12,7 +12,7 @@ module.exports = async (message, info) => {
         const yesEmote = `✅`;
         const noEmote = `⛔`;
 
-        let permsOutput = `User permissions in:\n  Server: 📛\n  Current channel: ♨️\n\n📛 | ♨️
+        let permsOutput = `Bot permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️
         `;
 
         info.botperms.forEach(perm =>{
