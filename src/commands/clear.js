@@ -3,7 +3,7 @@ const config = require("../config.json");
 module.exports.run = async (bot, message, args) => {
     if(!message.member.permissionsIn(message.channel).has("MANAGE_MESSAGES")) return message.channel.send({ content: `The \`\`${args[0]}\`\` command requires "Manage Messages" permission. `});
 
-    if(!/^([1-9]\d*)$/.test(args[1])) return message.channel.send({ content: `I-I can't delete that much!! <${config.emojis.pandascared}>` });
+    if(!/^([1-9]\d*)$/.test(args[1])) return message.channel.send({ content: `I-I can't delete that much!! <${config.emojis.pandaScared}>` });
 
     if(parseInt(args[1]) > 99) return message.channel.send({ content: `TOO MUCH FOR ME AAAAAAAAAAAAAAAAAAAAAAAAAA` });
 

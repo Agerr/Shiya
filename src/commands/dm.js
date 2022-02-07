@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
     let user = await bot.users.fetch(args[1]).catch(error => {
         success = false;
-        message.channel.send({ content: `Error!!! <${config.emojis.pandascared}>\`\`\`${error}\`\`\`` });
+        message.channel.send({ content: `Error!!! <${config.emojis.pandaScared}>\`\`\`${error}\`\`\`` });
     })
     
     if(!success) return;

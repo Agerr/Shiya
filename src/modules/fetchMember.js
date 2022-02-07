@@ -24,7 +24,7 @@ module.exports = async (message, memberInfo) => {
 
                     embed = new Discord.MessageEmbed()
                         .setColor(config.color)
-                        .setTitle(`Multiple users have this name!! <${config.emojis.pandascared}>`)
+                        .setTitle(`Multiple users have this name!! <${config.emojis.pandaScared}>`)
                         .setDescription(`${usersList}\nTry using @mention, id, name#tag, or writing more of their name out!`);
 
                     await message.channel.send({ embeds: [embed] });
@@ -34,7 +34,7 @@ module.exports = async (message, memberInfo) => {
         }
     } catch (error) {
         target = false;
-        message.channel.send({ content: `There was an error while fetching member <${config.emojis.pandascared}>` });
+        message.channel.send({ content: `There was an error while fetching member <${config.emojis.pandaScared}>` });
         console.log(`Error encountered: ${error}`);
     }
 
