@@ -19,6 +19,8 @@ module.exports = async (message, info) => {
             permsOutput += `${message.guild.me.permissions.has(perm) ? yesEmote : noEmote} | ${message.guild.me.permissionsIn(message.channel).has(perm) ? yesEmote : noEmote} - ${wordsUpperCase(perm)}\n`;
         });
 
+        permsOutput += `\`\`\``;
+
         const permissionsEmbed = new Discord.MessageEmbed()
             .setTitle(`Oh no... I lack permissions...`)
             .setColor(config.color)
