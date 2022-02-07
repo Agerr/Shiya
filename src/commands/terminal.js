@@ -1,7 +1,7 @@
 const Discord = require(`discord.js`),
       config = require(`../config.json`),
       util = require('util');
-      exec = util.promisify(require('child_process').exec);
+      exec = util.promisify(require(`child_process`).exec);
       bin = require(`../modules/bin.js`);
 
 let path2 = `~`;
