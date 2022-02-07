@@ -19,6 +19,6 @@ module.exports.info = {
     "usage": "slowmode [amount]",
     "aliases": [`sm`],
     "category": "moderation",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `MANAGE_MESSAGES`],
     "perm": "guild"
 }
