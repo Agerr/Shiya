@@ -1,5 +1,6 @@
 const Discord = require(`discord.js`), 
-    timeConvert = require(`../modules/timeConvert.js`),
+      timeConvert = require(`../modules/timeConvert.js`),
+      timeStringify = require(`../modules/timeStringify.js`);
       config = require(`../config.json`),
       reminders = new Set();
 
@@ -21,9 +22,9 @@ module.exports.run = async (bot, message, args) => {
         const remindEmbed = new Discord.MessageEmbed()
             .setColor(config.color)
             .setTitle(`Reminder`)
-            .setDescription(`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2).length > 0 ? `\`\`\`` + message.content.substring(config.prefix.length + args[0].length + args[1].length + 2) + `\`\`\`` : ``}`)
+            .setDescription((`${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2).length > 0 ? `\`\`\`` + message.content.substring(config.prefix.length + args[0].length + args[1].length + 2) + `\`\`\`` : ``}`).substring(0, 1000))
             .addField(`Reminder Created`, `<t:${parseInt(message.createdTimestamp / 1000)}:R>`)
-            .addField(`Reminded After`, `${parseInt(seconds) / 3600 >= 1 ? Math.round(parseInt(seconds) / 3600 * 100) / 100 + ` hours` : parseInt(seconds) / 60 >= 1 ? Math.round(parseInt(seconds) / 60 * 100) / 100 + ` minutes` : seconds + ` seconds`}`);
+            .addField(`Reminded After`, `${timeStringify(seconds)}.`);
 
         message.reply({ embeds: [remindEmbed]});
     }, parseInt(seconds) * 1000);

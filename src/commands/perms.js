@@ -12,7 +12,7 @@ const permissions = [`CREATE_INSTANT_INVITE`, `KICK_MEMBERS`, `BAN_MEMBERS`, `MO
 let permsOutput = `\`\`\`\nServer - 📛\nCurrent channel - ♨️\n\n📛 | ♨️\n`;
 
 module.exports.run = async (bot, message, args) => {
-    if(!args[1]) return message.channel.send({ content: `Couldn't find this member.` });
+    if(!args[1]) return message.channel.send({ content: `Provide user information.` });
 
     const target = await fetchMember(message, args[1]);
 
