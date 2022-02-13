@@ -74,4 +74,8 @@ bot.on(`messageCreate`, async message => {
     else console.log(`\x1b[31m${message.author.tag} (${message.author.id}) ran ${config.prefix}${cmd.info.name}\x1b[39m\n\tError encountered: ${errorEncountered}`);
 });
 
+bot.on(`threadCreate`, thread => {
+    thread.join();
+});
+
 bot.login(config.token);
