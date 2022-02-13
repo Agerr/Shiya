@@ -1,7 +1,7 @@
 const timeConvert = require(`../modules/timeConvert.js`);
 
 module.exports.run = async (bot, message, args) => {
-    if (!message.member.permissions.has(`MANAGE_CHANNELS`)) return message.channel.send({ content: `The \`${args[0]}\` command requires "Manage Channels" permission, which I don't have :c`});
+    if (!message.member.permissions.has(`MANAGE_CHANNELS`)) return message.channel.send({ content: `The \`${args[0]}\` command requires "Manage Channels" permission, which you don't have :c`});
 
     const seconds = await timeConvert(args[1]);
 
