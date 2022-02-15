@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => {
 
     if(message.guild != null) 
     { 
-        targetUser = await fetchMember(message, args[1]).user;
+        targetUser = (await fetchMember(message, args[1])).user;
     } else {
         targetUser = await bot.users.fetch(args[1]).catch(error => {
             success = false;
-            message.channel.send({ content: `Couldn't get this user.` });
+            message.channel.send({ content: `Couldn't get this user :c` });
         });
     }
 
