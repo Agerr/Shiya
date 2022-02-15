@@ -54,7 +54,7 @@ bot.on(`messageCreate`, async message => {
 
     const cmd = bot.commands.get(command);
 
-    if(message.guild === null && cmd.info.perm == `guild`) return message.channel.send({ content: `This command is guild only.` }).catch((error) => {});
+    if(message.guild === null && cmd.info.perm == `guild`) return message.channel.send({ content: `This command is guild only :'c` }).catch((error) => {});
     if(message.guild != null) if(await botPerms(message, cmd.info) === false) return; 
     if(cmd.info.perm == `dev` && !config.dev.includes(message.author.id)) return;
 
@@ -66,7 +66,7 @@ bot.on(`messageCreate`, async message => {
         success = true;
     } catch(error) {
         errorEncountered = error;
-        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``).catch((error) => {});
+        message.channel.send(`I encountered an error doing that!!! \n\nThe error was: \`\`\`${error}\`\`\``).catch((error) => {});
         success = false;
     }
 

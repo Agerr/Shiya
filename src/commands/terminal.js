@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => {
     try {
         const code = message.content.substring(config.prefix.length + args[0].length + 1);
 
-        if (code == ``) return message.channel.send({ content: `Please provide command` });
+        if (code == ``) return message.channel.send({ content: `I can't run nothing, silly!` });
 
         if (code == `RESET`) {
             path2 = `~`;
-            return message.channel.send({ content: `Terminal reset` });
+            return message.channel.send({ content: `I've reset the terminal, just for you! <3` });
         }
 
         embed = new Discord.MessageEmbed()
@@ -50,16 +50,16 @@ module.exports.run = async (bot, message, args) => {
                 await embed.addField(`Error:`, `\`\`\`\n${stderr}\`\`\``);
             }
         }
-        await message.channel.send({ embeds: [embed] }).catch((error) => { message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``); });
+        await message.channel.send({ embeds: [embed] }).catch((error) => { message.channel.send(`I encountered an error running that <${config.emojis.pandaScared}>\n\nThe error was: \`\`\`${error}\`\`\``); });
     } catch (error) {
-        message.channel.send(`I encountered an error running that command!\n\nThe error was: \`\`\`${error}\`\`\``);
+        message.channel.send(`I encountered an error running that <${config.emojis.pandaScared}>\n\nThe error was: \`\`\`${error}\`\`\``);
     }
 }
 
 module.exports.info = {
     "name": "terminal",
-    "description": "Executes code in terminal",
-    "usage": "terminal",
+    "description": "Executes bash code!! 👀",
+    "usage": "terminal [command]",
     "aliases": [`term`],
     "category": "developer",
     "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],

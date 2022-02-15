@@ -3,13 +3,13 @@ module.exports.run = async (bot, message, args) => {
           timeString = `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()} @ ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()} UTC`;
 
     console.log(`Process killed by ${message.author.tag} (${message.author.id}) ${timeString}`);
-    await message.channel.send({ content: `Shutting Down...` });
+    await message.channel.send({ content: `Shutting down... :c` });
     process.exit();
 }
 
 module.exports.info = {
     "name": "shutdown",
-    "description": "Kills process",
+    "description": "Kills me :(",
     "usage": "shutdown",
     "aliases": [`kill`],
     "category": "developer",

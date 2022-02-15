@@ -9,10 +9,10 @@ const permissions = [`CREATE_INSTANT_INVITE`, `KICK_MEMBERS`, `BAN_MEMBERS`, `MO
 `VIEW_GUILD_INSIGHTS`, `READ_MESSAGE_HISTORY`, `SEND_MESSAGES`, `SEND_TTS_MESSAGES`, `ATTACH_FILES`, `USE_EXTERNAL_STICKERS`, `USE_EXTERNAL_EMOJIS`, `ADD_REACTIONS`, `SEND_MESSAGES_IN_THREADS`,
 `CREATE_PUBLIC_THREADS`, `CONNECT`, `SPEAK`, `PRIORITY_SPEAKER`, `STREAM`, `MUTE_MEMBERS`, `DEAFEN_MEMBERS`, `MOVE_MEMBERS`, `MENTION_EVERYONE`];
 
-let permsOutput = `\`\`\`\nServer - 📛\nCurrent channel - ♨️\n\n📛 | ♨️\n`;
+let permsOutput = `\`\`\`\nUser permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️\n`;
 
 module.exports.run = async (bot, message, args) => {
-    if(!args[1]) return message.channel.send({ content: `Provide user information.` });
+    if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
 
     const target = await fetchMember(message, args[1]);
 
@@ -33,16 +33,16 @@ module.exports.run = async (bot, message, args) => {
 }
 
 function wordsUpperCase(str) {
-    var splitStr = str.toLowerCase().split('_');
+    var splitStr = str.toLowerCase().split(`_`);
     for (var i = 0; i < splitStr.length; i++) {
         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
     }
-    return splitStr.join(' '); 
+    return splitStr.join(` `); 
 }
 
 module.exports.info = {
     "name": "perms",
-    "description": "Sends users permissions",
+    "description": "Shows you what you can do on this server 👀",
     "usage": "perms [mention | id | name | tag]",
     "aliases": [],
     "category": "information",

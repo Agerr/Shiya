@@ -5,18 +5,18 @@ const Discord = require(`discord.js`),
       reminders = new Set();
 
 module.exports.run = async (bot, message, args) => {
-    if (!args[1]) return message.channel.send({ content: `Unspecified length.` });
+    if (!args[1]) return message.channel.send({ content: `You didn't tell me how long, silly!` });
     const seconds = await timeConvert(args[1]);
 
-    if(seconds === false) return message.channel.send({ content: `Invalid amount.` });
-    if(parseInt(seconds) / 3600 > 6) return message.channel.send({ content: `You can set reminder up to 6 hours.` });
-    if(message.content.substring(config.prefix.length + args[0].length + args[1].length + 2).length > 1000) return message.channel.send(`Text can't be longer than 1000 characters.`);
+    if(seconds === false) return message.channel.send({ content: `I can't do that, silly!` });
+    if(parseInt(seconds) / 3600 > 6) return message.channel.send({ content: `You can only set reminder up to 6 hours :c` });
+    if(message.content.substring(config.prefix.length + args[0].length + args[1].length + 2).length > 1000) return message.channel.send(`Text can't be longer than 1000 characters!! Sorry <${config.emojis.pandaScared}>`);
     if(reminders.has(message.author.id)) {
-        return message.reply({ content: `You already have a reminder set.` });
+        return message.reply({ content: `You already have a reminder set :c` });
     }
     
     reminders.add(message.author.id);
-    message.reply({ content: `Reminder set for ${timeStringify(seconds)}.`});
+    message.reply({ content: `Reminder set for ${timeStringify(seconds)}!! <${config.emojis.pandaWow}>`});
     setTimeout(() => {
         reminders.delete(message.author.id);
 

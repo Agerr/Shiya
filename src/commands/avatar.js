@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     let success = true;
     let targetUser;
 
-    if(!args[1]) return message.channel.send({ content: `Provide user information.` });
+    if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
 
     if(message.guild != null) 
     { 
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
         targetUser = await bot.users.fetch(args[1]).catch(error => {
             success = false;
-            message.channel.send({ content: `Couldn't get this user.` });
+            message.channel.send({ content: `Couldn't get this user :c` });
         });
     }
     
@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.info = {
     "name": "avatar",
-    "description": "Sends user's avatar",
+    "description": "Sends someone's avatar! c:<",
     "usage": "avatar [{mention} | id | {name} | {tag}]",
     "aliases": [`av`],
     "category": "information",

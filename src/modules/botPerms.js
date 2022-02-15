@@ -11,9 +11,8 @@ module.exports = async (message, info) => {
         if(!message.guild.me.permissionsIn(message.channel).has(perm)) hasPerms = false;
     });
 
-    if(!hasPerms) {
-
-        let permsOutput = `\`\`\`\nServer - 📛\nCurrent channel - ♨️\n\n📛 | ♨️\n`;
+    if(!hasPerms){
+        let permsOutput = `\`\`\`Bot permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️\n`;
 
         info.botperms.forEach(perm =>{
             permsOutput += `${message.guild.me.permissions.has(perm) ? yesEmote : noEmote} | ${message.guild.me.permissionsIn(message.channel).has(perm) ? yesEmote : noEmote} - ${wordsUpperCase(perm)}\n`;
@@ -22,10 +21,10 @@ module.exports = async (message, info) => {
         permsOutput += `\`\`\``;
 
         const permissionsEmbed = new Discord.MessageEmbed()
-            .setTitle(`Oh no... I lack permissions...`)
+            .setTitle(`I lack permissions :'c`)
             .setColor(config.color)
             .setDescription(permsOutput)
-            .setFooter({ text: `Please enable these permissions` });
+            .setFooter({ text: `Please get me everything above :c` });
 
         await (message.guild.me.permissionsIn(message.channel).has(`VIEW_CHANNEL`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES`) && message.guild.me.permissionsIn(message.channel).has(`SEND_MESSAGES_IN_THREADS`)) ? await message.channel.send({ embeds: [permissionsEmbed] }).catch((error) => {}) : await message.author.send({ embeds: [permissionsEmbed] }).catch((error) => {});
 

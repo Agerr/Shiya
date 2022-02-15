@@ -50,7 +50,7 @@ fs.readdir(`./commands/`, (error, files) => {
     });
     
     for (const category in commands) {
-        commands[category] = commands[category] != `` ? commands[category].substring(0, commands[category].length - 1) + ` ` : `None`;
+        commands[category] = commands[category] != `` ? commands[category].substring(0, commands[category].length - 1) + ` ` : `*None*`;
     };
 });
 
@@ -62,13 +62,13 @@ module.exports.run = (bot, message, args) => {
         const cmd = bot.commands.get(args[1].toLowerCase());
 
         const commandHelpEmbed = new Discord.MessageEmbed()
-            .setTitle(`Command's ${cmd.info.name} info`)
+            .setTitle(config.prefix + cmd.info.name)
             .setColor(config.color)
             .setFooter({ text: `Usage syntax: [required] <optional> {guild only}` })
             .setFields(
-                { name: `Description`, value: `${cmd.info.description}` },
-                { name: `Usage`, value: `\`${config.prefix}${cmd.info.usage}\`` },
-                { name: `Aliases`, value: `${cmd.info.aliases.length > 0 ? cmd.info.aliases.join(`, `) : `None`}` }
+                { name: `Description!`, value: `${cmd.info.description}` },
+                { name: `Usage!`, value: `\`${config.prefix}${cmd.info.usage}\`` },
+                { name: `Aliases!`, value: `${cmd.info.aliases.length > 0 ? cmd.info.aliases.join(`, `) : `*None*`}` }
             );
 
         message.channel.send({ embeds: [commandHelpEmbed] });
@@ -78,13 +78,13 @@ module.exports.run = (bot, message, args) => {
             .setAuthor({ name:  bot.user.username + ` Commands List`, iconURL: bot.user.displayAvatarURL() })
             .setColor(config.color)
             .addFields(
-                { name: `Moderation`, value: `${commands.moderation}` },
-                { name: `Information`, value: `${commands.information}` },
-                { name: `Games`, value: `${commands.games}` },
-                { name: `Images`, value: `${commands.images}` },
-                { name: `Fun`, value: `${commands.fun}` },
-                { name: `Random`, value:  `${commands.random}`},
-                { name: `Utility`, value: `${commands.utility}` },
+                { name: `⚔️ Moderation`, value: `${commands.moderation}` },
+                { name: `ℹ️ Information`, value: `${commands.information}` },
+                { name: `🕹️ Games`, value: `${commands.games}` },
+                { name: `🖼️Images`, value: `${commands.images}` },
+                { name: `🎮 Fun`, value: `${commands.fun}` },
+                { name: `🎲 Random`, value:  `${commands.random}`},
+                { name: `🛠️ Utility`, value: `${commands.utility}` },
             );
 
         if(config.dev.includes(message.author.id)) { helpEmbed.addField(`Developer`, `${commands.developer}`, true); }
@@ -95,7 +95,7 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.info = {
     "name": "help",
-    "description": "Sends help infomation about bot's commands",
+    "description": "Tells you what you can do with me!!",
     "usage": "help <command>",
     "aliases": [],
     "category": "information",

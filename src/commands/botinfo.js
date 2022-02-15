@@ -53,7 +53,7 @@ module.exports.run = (bot, message, args) => {
           seconds = Math.floor(bot.uptime / 1000) % 60;
 
     cpuStat.usagePercent((error, percent) => {
-        if(error) throw `Error fetching cpu information: ${error}`;
+        if(error) throw `Error fetching CPU information: ${error}`;
 
         const memoryusage = formatBytes(process.memoryUsage().heapUsed),
               node = process.version,
@@ -66,20 +66,20 @@ module.exports.run = (bot, message, args) => {
         embed.setColor(config.color);
         embed.addField(`Name: `, bot.user.username, true);
         embed.addField(`ID: `, bot.user.id, true);
-        embed.addField(`Created: `, `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`);
-        if(message.guild != null) embed.addField(`Added To Server: `, `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`);
-        embed.addField(`Servers: `, `${bot.guilds.cache.size}`);
-        embed.addField(`Serving Users: `, `${bot.users.cache.size}`, true);
-        embed.addField(`Serving Channels: `, `${bot.channels.cache.filter(channel => channel.type != 'GUILD_CATEGORY').size}`, true);
-        embed.addField(`UpTime: `, `\`${days}\` Days \`${hours}\` Hours \`${minutes}\` Minutes \`${seconds}\` Seconds`);
-        embed.addField(`Node Version: `, node, true);
-        embed.addField(`Memory Usage: `, memoryusage, true);
-        embed.addField(`CPU Usage: `, `${cpu}%`, true);
-        embed.addField(`CPU Model: `, cpuModel);
-        embed.addField(`Cores: `, `${cores}`);
-        embed.addField(`Bot file: `, `${botLines} lines (${botSize}KB)`, true);
-        embed.addField(`Module files: `, `${moduleLines} lines (${moduleSize}KB)`, true);
-        embed.addField(`Command files: `, `${commandLines} lines (${commandSize}KB)`, true);
+        embed.addField(`Born: `, `<t:${parseInt(bot.user.createdTimestamp / 1000)}:R>`);
+        if(message.guild != null) embed.addField(`Added Here: `, `<t:${parseInt(message.guild.me.joinedTimestamp / 1000)}:R>`);
+        embed.addField(`Helping In:`, `${bot.guilds.cache.size} servers`);
+        embed.addField(`Users:`, `${bot.users.cache.size}`, true);
+        embed.addField(`Channels:`, `${bot.channels.cache.filter(channel => channel.type != 'GUILD_CATEGORY').size}`, true);
+        embed.addField(`Last Slept:`, `\`${days}\` days, \`${hours}\` hours, \`${minutes}\` minutes, \`${seconds}\` seconds ago`);
+        embed.addField(`Node Version:`, node, true);
+        embed.addField(`Memory Usage:`, memoryusage, true);
+        embed.addField(`Brain Usage:`, `${cpu}%`, true);
+        embed.addField(`Brain Model:`, cpuModel);
+        embed.addField(`Brain Cells:`, `${cores}`);
+        embed.addField(`Main file:`, `${botLines} lines (${botSize}KB)`, true);
+        embed.addField(`Module files:`, `${moduleLines} lines (${moduleSize}KB)`, true);
+        embed.addField(`Command files:`, `${commandLines} lines (${commandSize}KB)`, true);
 
         message.channel.send({ embeds: [embed] });
     });
@@ -87,7 +87,7 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.info = {
     "name": "botinfo",
-    "description": "Sends information about bot",
+    "description": "Sends information about me c:",
     "aliases": [`binfo`],
     "usage": "botinfo",
     "category": "information",
