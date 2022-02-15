@@ -1,14 +1,14 @@
 const Discord = require(`discord.js`),
       config = require(`../config.json`),
       util = require('util');
-      exec = util.promisify(require('child_process').exec);
+      exec = util.promisify(require(`child_process`).exec);
       bin = require(`../modules/bin.js`);
 
 let path2 = `~`;
 
 module.exports.run = async (bot, message, args) => {
     try {
-        const code = message.content.substr(config.prefix.length + args[0].length + 1);
+        const code = message.content.substring(config.prefix.length + args[0].length + 1);
 
         if (code == ``) return message.channel.send({ content: `Please provide command` });
 
@@ -28,10 +28,10 @@ module.exports.run = async (bot, message, args) => {
         
         let { stdout, stderr } = await exec(`cd ${path2}\n` + code + `\necho\npwd`, {maxBuffer: 1024 * 500000});
 
-        path = stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.substr(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1).length - 1);
-        path2 = path.replaceAll(`/`, `'/'`).substr(1) + `'`;
-        stdout = stdout.substr(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1));
-
+        path = stdout.substring(stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1)+1, stdout.length - 1);
+        path2 = path.replaceAll(`/`, `'/'`).substring(1) + `'`;
+        stdout = stdout.substring(0, stdout.lastIndexOf(`\n`, stdout.lastIndexOf(`\n`)-1));
+        
         if(stdout!== `` && stderr == ``) {
             if (stdout.length > 1000) {
                 await embed.addField(`Output:`, `${await bin(message, stdout)}`);

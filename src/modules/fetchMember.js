@@ -35,7 +35,6 @@ module.exports = async (message, memberInfo) => {
     } catch (error) {
         target = false;
         message.channel.send({ content: `There was an error while fetching member.` });
-        console.log(`Error encountered: ${error}`);
     }
 
     if(target == undefined) { 

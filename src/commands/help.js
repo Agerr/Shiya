@@ -64,7 +64,7 @@ module.exports.run = (bot, message, args) => {
         const commandHelpEmbed = new Discord.MessageEmbed()
             .setTitle(`Command's ${cmd.info.name} info`)
             .setColor(config.color)
-            .setFooter({ text: `Usage syntax: [required] <optional>` })
+            .setFooter({ text: `Usage syntax: [required] <optional> {guild only}` })
             .setFields(
                 { name: `Description`, value: `${cmd.info.description}` },
                 { name: `Usage`, value: `\`${config.prefix}${cmd.info.usage}\`` },
@@ -83,7 +83,7 @@ module.exports.run = (bot, message, args) => {
                 { name: `Games`, value: `${commands.games}` },
                 { name: `Images`, value: `${commands.images}` },
                 { name: `Fun`, value: `${commands.fun}` },
-                { name: `Random`, value:  `${commands.fun}`},
+                { name: `Random`, value:  `${commands.random}`},
                 { name: `Utility`, value: `${commands.utility}` },
             );
 
