@@ -12,7 +12,7 @@ module.exports = async (message, info) => {
         const yesEmote = `✅`;
         const noEmote = `⛔`;
 
-        let permsOutput = `Bot permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️\n`;
+        let permsOutput = `\`\`\`Bot permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️\n`;
 
         info.botperms.forEach(perm =>{
             permsOutput += `${message.guild.me.permissions.has(perm) ? yesEmote : noEmote} | ${message.guild.me.permissionsIn(message.channel).has(perm) ? yesEmote : noEmote} - ${wordsUpperCase(perm)}\n`;
