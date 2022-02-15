@@ -7,18 +7,20 @@ module.exports.run = async (bot, message, args) => {
     let targetUser;
 
     if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
-
+    
     if(message.guild != null) 
     { 
-        targetUser = (await fetchMember(message, args[1])).user;
+        targetUser = (await fetchMember(message, args[1]));
     } else {
         targetUser = await bot.users.fetch(args[1]).catch(error => {
             success = false;
             message.channel.send({ content: `Couldn't get this user :c` });
         });
     }
-    
+
     if(targetUser === false || success === false) return;
+
+    targetUser = targetUser.user;
 
     const embed = new Discord.MessageEmbed()
         .setAuthor({ name: `${targetUser.tag}'s Avatar`,  iconUrl: targetUser.avatarURL() })
