@@ -50,9 +50,9 @@ module.exports.run = async (bot, message, args) => {
                 await embed.addField(`Error:`, `\`\`\`\n${stderr}\`\`\``);
             }
         }
-        await message.channel.send({ embeds: [embed] }).catch((error) => { message.channel.send(`I encountered an error running that <${config.emojis.pandaScared}>\n\nThe error was: \`\`\`${error}\`\`\``); });
+        await message.channel.send({ embeds: [embed] }).catch((error) => { message.channel.send(`I encountered an error running that ${config.emojis.pandaScared}\n\nThe error was: \`\`\`${error}\`\`\``); });
     } catch (error) {
-        message.channel.send(`I encountered an error running that <${config.emojis.pandaScared}>\n\nThe error was: \`\`\`${error}\`\`\``);
+        message.channel.send(`I encountered an error running that ${config.emojis.pandaScared}\n\nThe error was: \`\`\`${error}\`\`\``);
     }
 }
 
