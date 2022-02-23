@@ -6,14 +6,15 @@ module.exports.run = async (bot, message, args) => {
     let success = true;
     let targetUser;
 
-    if(!args[1]) return message.channel.send({ content: `Couldn't find this user :c.` });
+    if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
 
     if(message.guild != null) { 
-        targetUser = await fetchMember(message, args[1]).user;
+        target = await fetchMember(message, args[1]);
+        targetUser = target.user || false;
     } else {
         targetUser = await bot.users.fetch(args[1]).catch(error => {
             success = false;
-            message.channel.send({ content: `Couldn't get this user.` });
+            message.channel.send({ content: `Couldn't get this user :c` });
         });
     }
 
