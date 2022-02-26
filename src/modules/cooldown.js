@@ -1,5 +1,5 @@
-const Discord = require(`discord.js`),
-      cooldown = new Set();
+const config = require(`../config.json`),
+      cooldown = new Set(),
       answered = new Set();
 
 module.exports = async (message) => {
@@ -16,7 +16,7 @@ module.exports = async (message) => {
         setTimeout(() => {
             cooldown.delete(message.author.id);
             answered.delete(message.author.id);
-        }, 1500);
+        }, config.rateLimitMs);
         return true;
     }
 }
