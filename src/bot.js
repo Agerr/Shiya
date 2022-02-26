@@ -64,7 +64,7 @@ bot.on(`messageCreate`, async message => {
         errorEncountered;
     try {
         await cmd.run(bot, message, args);
-        dbHandler.addUse(command, message.author.id);
+        dbHandler.addUse(cmd.info.name, message.author.id);
         success = true;
     } catch(error) {
         errorEncountered = error;
