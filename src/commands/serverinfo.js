@@ -31,6 +31,6 @@ module.exports.info = {
     "usage": "serverinfo",
     "aliases": [`sinfo`],
     "category": "information",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`],
     "perm": "guild"
 }
