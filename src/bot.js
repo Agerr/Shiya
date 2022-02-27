@@ -3,7 +3,8 @@ const Discord = require(`discord.js`),
       fs = require(`fs`),
       config = require(`./config.json`),
       dbHandler = require(`./modules/dbHandler.js`),
-      botPerms = require(`./modules/botPerms.js`);
+      botPerms = require(`./modules/botPerms.js`),
+      cooldown = require(`./modules/cooldown.js`)
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
@@ -51,6 +52,7 @@ bot.on(`messageCreate`, async message => {
           command = args[0].toLowerCase();
     
     if(!bot.commands.has(command)) return;
+    if((await cooldown(message)) === false) return;
 
     const cmd = bot.commands.get(command);
 
@@ -62,7 +64,7 @@ bot.on(`messageCreate`, async message => {
         errorEncountered;
     try {
         await cmd.run(bot, message, args);
-        dbHandler.addUse(command, message.author.id);
+        dbHandler.addUse(cmd.info.name, message.author.id);
         success = true;
     } catch(error) {
         errorEncountered = error;
