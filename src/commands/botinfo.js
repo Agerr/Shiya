@@ -92,5 +92,6 @@ module.exports.info = {
     "usage": "botinfo",
     "category": "information",
     "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "userPerms": [],
     "perm": "public"
 }

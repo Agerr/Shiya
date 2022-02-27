@@ -61,6 +61,16 @@ module.exports.run = (bot, message, args) => {
 
         const cmd = bot.commands.get(args[1].toLowerCase());
 
+        let perms = ``;
+        if(cmd.info.userPerms.length > 0) {
+            cmd.info.userPerms.forEach(perm => {
+                perms += ` \`${wordsUpperCase(perm)}\`,`;
+            });
+            perms = perms.substring(0, perms.length - 1);
+        } else {
+            perms = `*None*`;
+        }
+
         const commandHelpEmbed = new Discord.MessageEmbed()
             .setTitle(config.prefix + cmd.info.name)
             .setColor(config.color)
@@ -68,7 +78,8 @@ module.exports.run = (bot, message, args) => {
             .setFields(
                 { name: `Description!`, value: `${cmd.info.description}` },
                 { name: `Usage!`, value: `\`${config.prefix}${cmd.info.usage}\`` },
-                { name: `Aliases!`, value: `${cmd.info.aliases.length > 0 ? cmd.info.aliases.join(`, `) : `*None*`}` }
+                { name: `Aliases!`, value: `${cmd.info.aliases.length > 0 ? cmd.info.aliases.join(`, `) : `*None*`}` },
+                { name: `Required permissions!`, value: `${perms}` }
             );
 
         message.channel.send({ embeds: [commandHelpEmbed] });
@@ -92,6 +103,13 @@ module.exports.run = (bot, message, args) => {
          message.channel.send({ embeds: [helpEmbed] });   
     }
 }
+function wordsUpperCase(str) {
+    var splitStr = str.toLowerCase().split(`_`);
+    for (var i = 0; i < splitStr.length; i++) {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+    }
+    return splitStr.join(` `); 
+}
 
 module.exports.info = {
     "name": "help",
@@ -100,5 +118,6 @@ module.exports.info = {
     "aliases": [],
     "category": "information",
     "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "userPerms": [],
     "perm": "public"
 }

@@ -3,7 +3,8 @@ const Discord = require(`discord.js`),
       fs = require(`fs`),
       config = require(`./config.json`),
       dbHandler = require(`./modules/dbHandler.js`),
-      botPerms = require(`./modules/botPerms.js`);
+      botPerms = require(`./modules/botPerms.js`),
+      checkPerms = require(`./modules/checkPerms.js`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
@@ -55,7 +56,8 @@ bot.on(`messageCreate`, async message => {
     const cmd = bot.commands.get(command);
 
     if(message.guild === null && cmd.info.perm == `guild`) return message.channel.send({ content: `This command is guild only :'c` }).catch((error) => {});
-    if(message.guild != null) if(await botPerms(message, cmd.info) === false) return; 
+    if(message.guild != null) if(await botPerms(message, cmd.info) === false) return;
+    if(message.guild != null) if(await checkPerms(message, cmd.info) === false) return;
     if(cmd.info.perm == `dev` && !config.dev.includes(message.author.id)) return;
 
     let success,

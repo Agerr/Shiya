@@ -47,5 +47,6 @@ module.exports.info = {
     "aliases": [],
     "category": "information",
     "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`],
+    "userPerms": [],
     "perm": "guild"
 }

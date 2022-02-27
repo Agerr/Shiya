@@ -30,5 +30,6 @@ module.exports.info = {
     "aliases": [`send`],
     "category": "developer",
     "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "userPerms": [],
     "perm": "dev"
 }
