@@ -6,10 +6,10 @@ module.exports.run = async (bot, message, args) => {
     let success = true;
 
     if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
-    if (message.guild.members.cache.get(args[1])) return message.channel.send({ content: `User exists in this guild, please use \`ban\` command` });
+    if (message.guild.members.cache.get(args[1])) return message.channel.send({ content: `That person exists in this guild!! Please use \`${config.prefix}ban\` command!!` });
 
     target = await bot.users.fetch(args[1]).catch((error) => {
-        message.channel.send({ content: `Couldn't fetch-ban this user ${config.emojis.pandaScared}\n\`\`${error.message}\`\`` });
+        message.channel.send({ content: `Couldn't fetch-ban this user :c\n\`\`${error.message}\`\`` });
         success = false;
     });
 
@@ -17,12 +17,12 @@ module.exports.run = async (bot, message, args) => {
 
     await message.guild.members.ban(target.id);
 
-    message.channel.send({ content: `Successfully fetch-banned ${target.tag}` });
+    message.channel.send({ content: `Successfully fetch-banned ${target.tag}!!! ${config.emojis.pandaWow}` });
 }
 
 module.exports.info = {
     "name": "fetch-ban",
-    "description": "Permanently gets rid of someone",
+    "description": "Permanently gets rid of someone who may have left the server already!!",
     "usage": "fetch-ban [id]",
     "aliases": [],
     "category": "moderation",

@@ -11,16 +11,16 @@ module.exports.run = async (bot, message, args) => {
 
     if(await hierarchy(message, target) === false) return;
 
-    if(args[2] && args[2].length > 100) return message.channel.send({ content: `Reason can't be longer than 100 characters!! Sorry ${config.emojis.pandaScared}` });
+    if(args[2] && args[2].length > 100) return message.channel.send({ content: `Reason can't be longer than 100 characters!! Soweee ${config.emojis.pandaScared}` });
 
-    await target.kick(args[2] ? `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` : `Not specified`);
+    await target.kick(args[2] ? `${message.content.substring(config.prefix.length + args[0].length + args[1].length + 2)}` : `Not specified.`);
 
-    message.channel.send({ content: `Successfully kicked ${target.user.tag}` });
+    message.channel.send({ content: `Successfully kicked ${target.user.tag}!! ${config.emojis.pandaYay}` });
 }
 
 module.exports.info = {
     "name": "kick",
-    "description": "Sends someone to the gulag hehe >:)",
+    "description": "Gets rid of someone, not permanently!",
     "usage": "kick [mention | id | name | tag] <reason>",
     "aliases": [],
     "category": "moderation",

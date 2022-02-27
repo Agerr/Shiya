@@ -6,21 +6,21 @@ module.exports.run = async (bot, message, args) => {
 
     if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
 
-    if(args[2] && args[2].length > 100) return message.channel.send({ content: `Reason can't be longer than 100 characters!! Sorry ${config.emojis.pandaScared}` });
+    if(args[2] && args[2].length > 100) return message.channel.send({ content: `Reason can't be longer than 100 characters!! Soweee ${config.emojis.pandaScared}` });
 
     await message.guild.members.unban(args[1]).catch((error) => {
-        message.channel.send({ content: `Couldn't unban this member ${config.emojis.pandaScared}\n\`\`${error.message}\`\`` });
+        message.channel.send({ content: `Can't unban this person :c\n\`\`${error.message}\`\`` });
         success = false;
     })
 
     if(success === false) return;
 
-    message.channel.send({ content: `Successfully unbanned ${(await bot.users.fetch(args[1])).tag}` });
+    message.channel.send({ content: `Successfully unbanned ${(await bot.users.fetch(args[1])).tag}!! ${config.emojis.pandaYay}` });
 }
 
 module.exports.info = {
     "name": "unban",
-    "description": "Revokes ban",
+    "description": "Un-bans someone 👀",
     "usage": "unban [id]",
     "aliases": [],
     "category": "moderation",
