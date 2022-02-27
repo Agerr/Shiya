@@ -4,7 +4,8 @@ const Discord = require(`discord.js`),
       config = require(`./config.json`),
       dbHandler = require(`./modules/dbHandler`),
       botPerms = require(`./modules/botPerms`),
-      checkPerms = require(`./modules/checkPerms`);
+      checkPerms = require(`./modules/checkPerms`),
+      cooldown = require(`./modules/cooldown`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 
