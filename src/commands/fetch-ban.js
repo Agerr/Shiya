@@ -15,8 +15,6 @@ module.exports.run = async (bot, message, args) => {
 
     if(success === false) return;
 
-    if(args[2] && args[2].length > 100) return message.channel.send({ content: `Reason can't be longer than 100 characters!! Sorry ${config.emojis.pandaScared}` });
-
     await message.guild.members.ban(target.id);
 
     message.channel.send({ content: `Successfully fetch-banned ${target.tag}` });
