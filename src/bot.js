@@ -1,4 +1,5 @@
 const Discord = require(`discord.js`),
+      bot = new Discord.Client({ intents: 4867, partials: [`CHANNEL`]}),
       fs = require(`fs`),
       config = require(`./config.json`),
       dbHandler = require(`./modules/dbHandler`),
