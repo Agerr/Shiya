@@ -37,6 +37,6 @@ module.exports.info = {
     "usage": "remind [amount] <text>",
     "aliases": [],
     "category": "utility",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
     "perm": "public"
 }

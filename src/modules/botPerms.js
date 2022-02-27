@@ -7,14 +7,14 @@ const noEmote = `⛔`;
 module.exports = async (message, info) => {
     let hasPerms = true;
 
-    await info.botperms.forEach(perm => {
+    await info.botPerms.forEach(perm => {
         if(!message.guild.me.permissionsIn(message.channel).has(perm)) hasPerms = false;
     });
 
     if(!hasPerms){
         let permsOutput = `\`\`\`Bot permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️\n`;
 
-        info.botperms.forEach(perm =>{
+        info.botPerms.forEach(perm =>{
             permsOutput += `${message.guild.me.permissions.has(perm) ? yesEmote : noEmote} | ${message.guild.me.permissionsIn(message.channel).has(perm) ? yesEmote : noEmote} - ${wordsUpperCase(perm)}\n`;
         });
 

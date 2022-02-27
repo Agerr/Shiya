@@ -35,6 +35,6 @@ module.exports.info = {
     "usage": "avatar [{mention} | id | {name} | {tag}]",
     "aliases": [`av`],
     "category": "information",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`],
     "perm": "public"
 }
