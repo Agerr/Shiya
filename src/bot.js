@@ -2,9 +2,9 @@ const Discord = require(`discord.js`),
       bot = new Discord.Client({ intents: 4867, partials: [`CHANNEL`]}),
       fs = require(`fs`),
       config = require(`./config.json`),
-      dbHandler = require(`./modules/dbHandler.js`),
-      botPerms = require(`./modules/botPerms.js`),
-      checkPerms = require(`./modules/checkPerms.js`);
+      dbHandler = require(`./modules/dbHandler`),
+      botPerms = require(`./modules/botPerms`),
+      checkPerms = require(`./modules/checkPerms`);
 
 console.log(`\nNode.js ${process.version}\nDiscord.js v${Discord.version}\n`);
 

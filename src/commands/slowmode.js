@@ -1,5 +1,5 @@
-const timeConvert = require(`../modules/timeConvert.js`),
-      timeStringify = require(`../modules/timeStringify.js`);
+const timeConvert = require(`../modules/timeConvert`),
+      timeStringify = require(`../modules/timeStringify`);
 
 module.exports.run = async (bot, message, args) => {
     const seconds = await timeConvert(args[1]);

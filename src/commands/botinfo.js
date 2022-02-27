@@ -34,7 +34,7 @@ fs.readdir(`./modules/`, (error, files) => {
 
 const cont = fs.readFileSync(`./bot.js`, {encoding:`utf8`});
 botLines += cont.split(`\n`).length;
-botSize += fs.statSync(`./bot.js`).size/1000;
+botSize += fs.statSync(`./bot`).size/1000;
 botSize = Math.round(botSize * 10) / 10
 
 function formatBytes(a, b) {

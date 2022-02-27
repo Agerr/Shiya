@@ -1,6 +1,6 @@
 const Discord = require(`discord.js`), 
-      timeConvert = require(`../modules/timeConvert.js`),
-      timeStringify = require(`../modules/timeStringify.js`);
+      timeConvert = require(`../modules/timeConvert`),
+      timeStringify = require(`../modules/timeStringify`);
       config = require(`../config.json`),
       reminders = new Set();
 
