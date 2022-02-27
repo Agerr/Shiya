@@ -1,5 +1,4 @@
 const Discord = require(`discord.js`),
-      bot = new Discord.Client({ intents: 4867, partials: [`CHANNEL`]}),
       fs = require(`fs`),
       config = require(`./config.json`),
       dbHandler = require(`./modules/dbHandler`),
@@ -52,6 +51,7 @@ bot.on(`messageCreate`, async message => {
           command = args[0].toLowerCase();
     
     if(!bot.commands.has(command)) return;
+    if((await cooldown(message)) === false) return;
 
     const cmd = bot.commands.get(command);
 
@@ -64,7 +64,7 @@ bot.on(`messageCreate`, async message => {
         errorEncountered;
     try {
         await cmd.run(bot, message, args);
-        dbHandler.addUse(command, message.author.id);
+        dbHandler.addUse(cmd.info.name, message.author.id);
         success = true;
     } catch(error) {
         errorEncountered = error;
