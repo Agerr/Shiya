@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     await message.guild.members.unban(args[1]).catch((error) => {
         message.channel.send({ content: `Couldn't unban this member ${config.emojis.pandaScared}\n\`\`${error.message}\`\`` });
-        success = false
+        success = false;
     })
 
     if(success === false) return;
