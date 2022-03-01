@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(target === false) return;
     if(await hierarchy(message, target) === false) return;
+    if(target.permissions.has(`ADMINISTRATOR`)) return message.channel.send({ content: `Administrators can't be mutted!` });
 
     const seconds = await timeConvert(args[2]);
 
