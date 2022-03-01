@@ -91,6 +91,7 @@ module.exports.info = {
     "aliases": [`binfo`],
     "usage": "botinfo",
     "category": "information",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "userPerms": [],
     "perm": "public"
 }

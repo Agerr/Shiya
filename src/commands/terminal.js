@@ -1,8 +1,8 @@
 const Discord = require(`discord.js`),
       config = require(`../config.json`),
-      util = require('util');
-      exec = util.promisify(require(`child_process`).exec);
-      bin = require(`../modules/bin.js`);
+      util = require('util'),
+      exec = util.promisify(require(`child_process`).exec),
+      bin = require(`../modules/bin`);
 
 let path2 = `~`;
 
@@ -62,6 +62,7 @@ module.exports.info = {
     "usage": "terminal [command]",
     "aliases": [`term`],
     "category": "developer",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "userPerms": [],
     "perm": "dev"
 }

@@ -1,5 +1,5 @@
 const Discord = require(`discord.js`),
-      fetchMember = require(`../modules/fetchMember.js`),
+      fetchMember = require(`../modules/fetchMember`),
       config = require(`../config.json`);
 
 const yesEmote = `✅`;
@@ -46,6 +46,7 @@ module.exports.info = {
     "usage": "perms [mention | id | name | tag]",
     "aliases": [],
     "category": "information",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`],
+    "userPerms": [],
     "perm": "guild"
 }

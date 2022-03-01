@@ -1,6 +1,6 @@
 const Discord = require(`discord.js`), 
-      timeConvert = require(`../modules/timeConvert.js`),
-      timeStringify = require(`../modules/timeStringify.js`);
+      timeConvert = require(`../modules/timeConvert`),
+      timeStringify = require(`../modules/timeStringify`);
       config = require(`../config.json`),
       reminders = new Set();
 
@@ -37,6 +37,7 @@ module.exports.info = {
     "usage": "remind [amount] <text>",
     "aliases": [],
     "category": "utility",
-    "botperms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`],
+    "userPerms": [],
     "perm": "public"
 }
