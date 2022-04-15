@@ -16,7 +16,7 @@ module.exports.info = {
     "usage": "clear [amount]",
     "aliases": [`purge`],
     "category": "moderation",
-    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `MANAGE_MESSAGES`, `USE_EXTERNAL_STICKERS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `MANAGE_MESSAGES`, `USE_EXTERNAL_EMOJIS`],
     "userPerms": [`MANAGE_MESSAGES`],
     "perm": "guild"
 }

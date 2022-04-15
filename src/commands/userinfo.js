@@ -37,7 +37,7 @@ module.exports.info = {
     "usage": "userinfo [{mention} | id | {name} | {tag}]",
     "aliases": [`uinfo`],
     "category": "information",
-    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_EMOJIS`],
     "userPerms": [],
     "perm": "public"
 }
