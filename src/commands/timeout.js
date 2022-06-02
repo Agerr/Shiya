@@ -26,9 +26,9 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.info = {
-    "name": "mute",
+    "name": "timeout",
     "description": "Time-out someone who speaks too much >:)",
-    "usage": "mute [mention | id | name | tag] [length] <reason>",
+    "usage": "timeout [mention | id | name | tag] [length] <reason>",
     "aliases": [],
     "category": "moderation",
     "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `MODERATE_MEMBERS`],
