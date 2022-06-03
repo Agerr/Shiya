@@ -24,7 +24,7 @@ module.exports.info = {
     "usage": "kick [mention | id | name | tag] <reason>",
     "aliases": [],
     "category": "moderation",
-    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`, `KICK_MEMBERS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_EMOJIS`, `KICK_MEMBERS`],
     "userPerms": [`KICK_MEMBERS`],
     "perm": "guild"
 }

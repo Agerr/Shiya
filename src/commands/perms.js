@@ -9,9 +9,9 @@ const permissions = [`CREATE_INSTANT_INVITE`, `KICK_MEMBERS`, `BAN_MEMBERS`, `MO
 `VIEW_GUILD_INSIGHTS`, `READ_MESSAGE_HISTORY`, `SEND_MESSAGES`, `SEND_TTS_MESSAGES`, `ATTACH_FILES`, `USE_EXTERNAL_STICKERS`, `USE_EXTERNAL_EMOJIS`, `ADD_REACTIONS`, `SEND_MESSAGES_IN_THREADS`,
 `CREATE_PUBLIC_THREADS`, `CONNECT`, `SPEAK`, `PRIORITY_SPEAKER`, `STREAM`, `MUTE_MEMBERS`, `DEAFEN_MEMBERS`, `MOVE_MEMBERS`, `MENTION_EVERYONE`];
 
-let permsOutput = `\`\`\`\nUser permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️\n`;
-
 module.exports.run = async (bot, message, args) => {
+    let permsOutput = `\`\`\`\nUser permissions in:\nServer: 📛\nCurrent channel: ♨️\n\n📛 | ♨️\n`;
+    
     if(!args[1]) return message.channel.send({ content: `No user inputted!! Bad!! :c` });
 
     const target = await fetchMember(message, args[1]);

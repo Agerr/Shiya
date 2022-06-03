@@ -26,7 +26,7 @@ module.exports.info = {
     "usage": "hardban [id]",
     "aliases": [],
     "category": "moderation",
-    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_STICKERS`, `BAN_MEMBERS`],
+    "botPerms": [`VIEW_CHANNEL`, `SEND_MESSAGES`,`SEND_MESSAGES_IN_THREADS`, `USE_EXTERNAL_EMOJIS`, `BAN_MEMBERS`],
     "userPerms": [`BAN_MEMBERS`],
     "perm": "guild"
 }
